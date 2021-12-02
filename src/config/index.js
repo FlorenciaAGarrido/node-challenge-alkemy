@@ -18,6 +18,12 @@ module.exports = {
     swagger: {
         path: '/documentation'
     },
+    database:{
+        host: process.env.DATABASE_HOST,
+        username: process.env.DATABASE_USERNAME,
+        password: process.env.DATABASE_PASSWORD,
+        name: process.env.DATABASE_NAME,
+    },
     databaseURL: process.env.DATABASE_URL,
     auth: {
         secret : process.env.AUTH_SECRET,
