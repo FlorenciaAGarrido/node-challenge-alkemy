@@ -1,1 +1,1 @@
-# node-06-restserver
+# node-challenge-alkemy
