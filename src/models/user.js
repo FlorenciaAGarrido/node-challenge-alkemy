@@ -4,21 +4,18 @@ const sequelize = require("../loaders/sequelize");
 const User = sequelize.define(
   "Users",
   {
-    username: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
     password: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(50),
       allowNull: false,
     },
     name: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(50),
       allowNull: false,
     },
     email: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(50),
       allowNull: false,
+      unique: true,
     },
     enable: {
       type: DataTypes.BOOLEAN,
@@ -29,4 +26,4 @@ const User = sequelize.define(
   {}
 );
 
-console.log(User === sequelize.models.User);
+module.exports = User;
