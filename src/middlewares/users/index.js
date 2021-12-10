@@ -41,10 +41,8 @@ const _roleValid = check("role")
     }
   });
 
-const _dateValid = check("birthdate").optional().isDate("MM-DD-YYYY");
-
 const _idRequied = check("id").not().isEmpty();
-const _idIsMongoDB = check("id").isMongoId();
+const _idIsNumeric = check("id").isNumeric();
 const _idExist = check("id").custom(async (id = "") => {
   const userFound = await userService.findById(id);
   if (!userFound) {
@@ -53,52 +51,41 @@ const _idExist = check("id").custom(async (id = "") => {
 });
 
 const postRequestValidations = [
-  //validJWT,
-  //hasRole(ADMIN_ROLE),
+  validJWT,
+  hasRole(ADMIN_ROLE),
   _nameRequired,
-  //_lastNameRequired,
   _emailRequired,
   _emailValid,
   _emailExist,
   _passwordRequired,
-  //_roleValid,
-  //_dateValid,
+  _roleValid,
   validationResult,
 ];
 
 const putRequestValidations = [
-  //validJWT,
-  //hasRole(ADMIN_ROLE),
+  validJWT,
+  hasRole(ADMIN_ROLE),
   _idRequied,
-  //_idIsMongoDB,
+  _idIsNumeric,
   _idExist,
   _optionalEmailValid,
   _optionalEmailExist,
   _roleValid,
-  _dateValid,
   validationResult,
 ];
 
 const deleteRequestValidations = [
-  //validJWT,
-  //hasRole(ADMIN_ROLE),
-  _idRequied,
-  //_idIsMongoDB,
-  _idExist,
-  validationResult,
-];
-
-const getAllrequestValidation = [
-  //validJWT
-];
-
-const getRequestValidation = [
   validJWT,
+  hasRole(ADMIN_ROLE),
   _idRequied,
-  _idIsMongoDB,
+  _idIsNumeric,
   _idExist,
   validationResult,
 ];
+
+const getAllrequestValidation = [validJWT];
+
+const getRequestValidation = [validJWT, _idRequied, _idExist, validationResult];
 
 module.exports = {
   postRequestValidations,
