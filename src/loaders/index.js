@@ -7,12 +7,11 @@ module.exports = async () => {
   try {
     await sequelize.authenticate();
     require("../models/characters");
+    require("../models/movies");
     require("../models/contentTypes");
     require("../models/genderTypes");
-    require("../models/movies");
 
-    sequelize.sync({ alter: true });
-    //sequelize.sync({ force: false });
+    sequelize.sync({ force: false });
     logger.info("DB loaded and connected");
 
     const server = new ExpressServer();
