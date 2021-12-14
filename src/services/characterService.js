@@ -28,7 +28,7 @@ const remove = async (id) => {
 
 module.exports = {
   findById,
-  findByEmail,
+  findByName,
   findAll,
   save,
   update,

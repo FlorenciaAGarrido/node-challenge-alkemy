@@ -37,14 +37,14 @@ const createCharacter = async (req, res, next) => {
  * @param {express.Request} req
  * @param {express.Response} res
  */
-const updateUser = async (req, res, next) => {
+const updateCharacter = async (req, res, next) => {
   try {
     const { id } = req.params;
-    let user = req.body;
+    let c = req.body;
 
-    const userUpdated = await userService.update(id, user);
+    const characterUpdated = await characterService.update(id, c);
 
-    res.status(200).json(new Success(userUpdated));
+    res.status(200).json(new Success(characterUpdated));
   } catch (err) {
     next(err);
   }
@@ -88,7 +88,7 @@ const updateUser = async (req, res, next) => {
 module.exports = {
   //getAllUsers,
   createCharacter,
-  //updateUser,
+  updateCharacter,
   //getById,
   //deleteUser
 };

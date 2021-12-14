@@ -14,7 +14,7 @@ class CharacterRepository {
   }
 
   async findByName(name) {
-    return await User.findOne({ where: { name } });
+    return await Character.findOne({ where: { name } });
   }
 
   async save(c) {
