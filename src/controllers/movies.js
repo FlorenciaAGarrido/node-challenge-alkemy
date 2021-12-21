@@ -12,10 +12,9 @@ const getAllMovies = async (req, res, next) => {
   try {
     logger.info("Query: " + JSON.stringify(req.query));
 
-    const movies = await movieService.findAll(
-      req.query.filter,
-      req.query.options
-    );
+    const { filter = "", options = "" } = req.query;
+
+    const movies = await movieService.findAll(filter, options);
     res.json(new Success(movies));
   } catch (err) {
     next(err);

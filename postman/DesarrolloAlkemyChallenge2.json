@@ -1,6 +1,6 @@
 {
   "info": {
-    "_postman_id": "40d1876b-30d2-45a3-9dee-24e903fd8a16",
+    "_postman_id": "ec045c61-8a94-4585-84cc-bcc8940df84a",
     "name": "Challenge Alkemy",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
@@ -53,7 +53,7 @@
                 "header": [],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n    \"email\": \"fer@gmail.com\",\r\n    \"password\": \"123456\"\r\n}",
+                  "raw": "{\r\n     \"email\": \"flhor@gmail.com\",\r\n    \"password\": \"1234\"\r\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -533,7 +533,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n    \"name\": \"Fernando3\",\r\n    \"email\": \"{{randomNumber}}@gmail.com\",\r\n    \"password\": \"123456\"\r\n}",
+                  "raw": "{\r\n    \"name\": \"Florencia2\",\r\n    \"email\": \"flor22@gmail.com\",\r\n    \"password\": \"1234\",\r\n    \"role\": \"ADMIN_ROLE\"\r\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -965,7 +965,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n    \"name\": \"Capitan America {{randomNumber}}\",\r\n    \"age\": 35,\r\n    \"history\": \"Lorems imput\",\r\n    \"weigth\": 72\r\n}",
+                  "raw": "{\r\n    \"name\": \"Spiderman {{randomNumber}}\",\r\n    \"age\": 15,\r\n    \"history\": \"Lorems imput\",\r\n    \"weigth\": 65\r\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -1229,21 +1229,21 @@
                   }
                 ],
                 "url": {
-                  "raw": "{{basepath}}/characters?filter[name]=man&filter[age]=40&filter[weigth]=75",
+                  "raw": "{{basepath}}/characters?filter[name]=an&filter[age]=35&filter[weigth]=72",
                   "host": ["{{basepath}}"],
                   "path": ["characters"],
                   "query": [
                     {
                       "key": "filter[name]",
-                      "value": "man"
+                      "value": "an"
                     },
                     {
                       "key": "filter[age]",
-                      "value": "40"
+                      "value": "35"
                     },
                     {
                       "key": "filter[weigth]",
-                      "value": "75"
+                      "value": "72"
                     },
                     {
                       "key": "options[limit]",
@@ -1748,7 +1748,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n    \"title\": \"Los Vengadores {{randomNumber}}\",\r\n    \"creationDate\": \"2021-03-25\",\r\n    \"calification\": 10,\r\n    \"genderType\": \"ADVENTURE\",\r\n    \"contentType\": \"MOVIE\"\r\n}",
+                  "raw": "{\r\n    \"title\": \"Cenicienta {{randomNumber}}\",\r\n    \"creationDate\": \"2010-12-10\",\r\n    \"calification\": 10,\r\n    \"genderType\": \"ADVENTURE\",\r\n    \"contentType\": \"MOVIE\"\r\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -2012,13 +2012,13 @@
                   }
                 ],
                 "url": {
-                  "raw": "{{basepath}}/movies?filter[title]=ceni&filter[calification]=10&filter[creationDate]=2020-01-01&options[order]=title;DESC",
+                  "raw": "{{basepath}}/movies?filter[title]=Cenicienta&filter[calification]=10&filter[creationDate]=2021-03-25&options[order]=creationDate;DESC",
                   "host": ["{{basepath}}"],
                   "path": ["movies"],
                   "query": [
                     {
                       "key": "filter[title]",
-                      "value": "ceni"
+                      "value": "Cenicienta"
                     },
                     {
                       "key": "filter[calification]",
@@ -2026,7 +2026,7 @@
                     },
                     {
                       "key": "filter[creationDate]",
-                      "value": "2020-01-01"
+                      "value": "2021-03-25"
                     },
                     {
                       "key": "options[offset]",
@@ -2040,7 +2040,7 @@
                     },
                     {
                       "key": "options[order]",
-                      "value": "title;DESC"
+                      "value": "creationDate;DESC"
                     }
                   ]
                 }

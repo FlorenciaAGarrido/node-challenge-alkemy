@@ -6,8 +6,10 @@ const { parseISO } = require("date-fns");
 class MovieRepository {
   constructor() {}
 
-  //todo: implementar filtro
-  async findAll({ title, calification, creationDate }, options) {
+  async findAll(
+    { title, calification, creationDate },
+    { limit, offset, order }
+  ) {
     let where = {};
     if (title) {
       where.title = {
@@ -26,10 +28,17 @@ class MovieRepository {
         [Op.eq]: creationDate,
       };
     }
-    return await Movie.findAll({
+
+    let config = {
       where,
       attributes: ["title", "image", "creationDate"],
-    });
+      order: [["creationDate", "DESC"]],
+    };
+    if (order) {
+      config.order = [order.split(";")];
+    }
+
+    return await Movie.findAll(config);
   }
 
   async findById(id) {

@@ -1,12 +1,28 @@
-const bcrypt = require("bcrypt");
+const { Op } = require("sequelize");
 const Character = require("../models/characters");
 
 class CharacterRepository {
   constructor() {}
 
-  //TODO IMPLEMENTAR FILTRO
-  async findAll() {
-    return await Character.findAll();
+  //TODO IMPLEMENTAR FILTRO DE MOVIETITLE
+  async findAll({ name, age, weigth, movieTitle }, { limit, offset, order }) {
+    let where = {};
+    if (name) {
+      where.name = {
+        [Op.like]: `%${name}%`,
+      };
+    }
+    if (age) {
+      where.age = {
+        [Op.eq]: age,
+      };
+    }
+    if (weigth) {
+      where.weigth = {
+        [Op.eq]: weigth,
+      };
+    }
+    return await Character.findAll({ where });
   }
 
   async findById(id) {
