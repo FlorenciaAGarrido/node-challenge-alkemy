@@ -1,9 +1,9 @@
-const { Router, request } = require("express");
+const { Router } = require("express");
 const {
   getAllCharacters,
   createCharacter,
   updateCharacter,
-  getById,
+  getCharacterById,
   deleteCharacter,
 } = require("../controllers/characters");
 const {
@@ -16,10 +16,10 @@ const {
 
 const router = Router();
 
-//router.get("/", getAllrequestValidation, getAllCharacters);
+router.get("/", getAllrequestValidation, getAllCharacters);
 router.post("/", postRequestValidations, createCharacter);
 router.put("/:id(\\d+)/", putRequestValidations, updateCharacter);
-//router.get("/:id(\\d+)/", getRequestValidation, getById);
-//router.delete("/:id(\\d+)/", deleteRequestValidations, deleteCharacter);
+router.get("/:id(\\d+)/", getRequestValidation, getCharacterById);
+router.delete("/:id(\\d+)/", deleteRequestValidations, deleteCharacter);
 
 module.exports = router;

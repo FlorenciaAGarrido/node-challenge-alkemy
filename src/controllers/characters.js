@@ -1,20 +1,25 @@
 const express = require("express");
 const characterService = require("../services/characterService");
 const Success = require("../handlers/successHandler");
+const logger = require("../loaders/logger");
 
 /**
  *
  * @param {express.Request} req
  * @param {express.Response} res
  */
-/*const getAllUsers = async (req, res, next) => {
-    try {
-        const users = await userService.findAll(req.query.filter, req.query.optiones);
-        res.json(new Success(users));
-    }catch (err) {
-        next(err);
-    }
-};*/
+const getAllCharacters = async (req, res, next) => {
+  try {
+    logger.info("Query: " + JSON.stringify(req.query));
+
+    const { filter = "", options = "" } = req.query;
+
+    const characters = await characterService.findAll(filter, options);
+    res.json(new Success(characters));
+  } catch (err) {
+    next(err);
+  }
+};
 
 /**
  *
@@ -44,7 +49,7 @@ const updateCharacter = async (req, res, next) => {
 
     const characterUpdated = await characterService.update(id, c);
 
-    res.status(200).json(new Success(characterUpdated));
+    res.json(new Success(characterUpdated));
   } catch (err) {
     next(err);
   }
@@ -55,40 +60,34 @@ const updateCharacter = async (req, res, next) => {
  * @param {express.Request} req
  * @param {express.Response} res
  */
-/*const getById = async (req, res, next) => {
-    try {
-        const user = await userService.findById(req.params.id);
-        res.json(new Success(user));
-    }catch (err) {
-        next(err);
-    }
-};*/
+const getCharacterById = async (req, res) => {
+  try {
+    const c = await characterService.findById(req.params.id);
+    res.json(new Success(c));
+  } catch (err) {
+    next(err);
+  }
+};
 
 /**
  *
  * @param {express.Request} req
  * @param {express.Response} res
  */
-/*const deleteUser = async (req, res, next) => {
-    try {
-        const { id } = req.params;
-        const user = await userService.remove(id);
-        
-        
-        const result = {
-            messsage: `User with id: ${id} deleted`,
-            user
-        }
-        res.json(new Success(user));
-    } catch (err) {
-        next(err);
-    }
-};*/
+const deleteCharacter = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const c = await characterService.remove(id);
+    res.json(new Success(c));
+  } catch (err) {
+    next(err);
+  }
+};
 
 module.exports = {
-  //getAllUsers,
+  getAllCharacters,
   createCharacter,
   updateCharacter,
-  //getById,
-  //deleteUser
+  getCharacterById,
+  deleteCharacter,
 };

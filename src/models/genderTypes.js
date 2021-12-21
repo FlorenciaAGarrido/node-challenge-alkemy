@@ -1,4 +1,3 @@
-const { getRounds } = require("bcrypt");
 const { DataTypes } = require("sequelize");
 const sequelize = require("../loaders/sequelize");
 
