@@ -1,5 +1,6 @@
 const AWS = require("aws-sdk");
-const config = require("../config}");
+const { reject } = require("bcrypt/promises");
+const config = require("../config");
 const AppError = require("../errors/appError");
 
 class ImageRepository {
@@ -10,22 +11,28 @@ class ImageRepository {
     });
   }
 
-  async uploadImage(name, image) {
-    const params = {
-      Bucket: config.aws.s3BucketName,
-      Key: name,
-      Body: image,
-    };
+  uploadImage(name, image, type) {
+    const Key = `${name}.${type.split("/")[1]}`;
+    return new Promise((resolve, reject) => {
+      const params = {
+        Bucket: config.aws.s3BucketName,
+        Key,
+        Body: image,
+        ContentType: type,
+        ACL: "public-read",
+      };
 
-    this.s3.upload(params, (err, data) => {
-      if (err) {
-        throw new AppError(err.message, 502);
-      }
+      this.s3.upload(params, (err, data) => {
+        if (err) {
+          console.log(err);
+          reject(new AppError(err.message, 502));
+        }
 
-      // TODO: 1. ARMAR URL DE DESCARGA DE IMAGEN Y RETORNARLA
-      // - 2 ACTUALIZAR LA TABLA DE PERSONAJES O PELICULA  ( EN OTRA CAPA )
-      console.log(`########### Image location: ${data.location}`);
-      return data.location;
+        // TODO: 1. ARMAR URL DE DESCARGA DE IMAGEN Y RETORNARLA
+        // - 2 ACTUALIZAR LA TABLA DE PERSONAJES O PELICULA  ( EN OTRA CAPA )
+        console.log(`########### Image location: ${JSON.stringify(data)}`);
+        resolve(data.Location);
+      });
     });
   }
 }

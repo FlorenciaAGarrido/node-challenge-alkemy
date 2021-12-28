@@ -92,8 +92,8 @@ const deleteCharacter = async (req, res, next) => {
  */
 const uploadCharacterImage = async (req, res, next) => {
   try {
-    const characterId = request.body.id;
-    const image = request.file;
+    const characterId = req.body.id;
+    const image = req.file;
 
     res.json(
       new Success(await imageService.uploadCharacterImage(characterId, image))
