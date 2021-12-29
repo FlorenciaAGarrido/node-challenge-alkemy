@@ -35,6 +35,28 @@ class ImageRepository {
       });
     });
   }
+
+  deleteImage(name, type) {
+    const Key = `${name}.${type.split("/")[1]}`;
+    return new Promise((resolve, reject) => {
+      const params = {
+        Bucket: config.aws.s3BucketName,
+        Key,
+      };
+
+      this.s3.deleteObject(params, (err, data) => {
+        if (err) {
+          console.log(err);
+          reject(true);
+        }
+
+        // TODO: 1. ARMAR URL DE DESCARGA DE IMAGEN Y RETORNARLA
+        // - 2 ACTUALIZAR LA TABLA DE PERSONAJES O PELICULA  ( EN OTRA CAPA )
+        console.log(`########### Image location: ${JSON.stringify(data)}`);
+        resolve(data.Location);
+      });
+    });
+  }
 }
 
 module.exports = ImageRepository;
