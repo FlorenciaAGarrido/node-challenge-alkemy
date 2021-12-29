@@ -1,9 +1,11 @@
 const { check } = require("express-validator");
+const multer = require("multer");
+const upload = multer();
 const AppError = require("../../errors/appError");
 const movieService = require("../../services/movieService");
-const { ROLES, ADMIN_ROLE } = require("../../constants");
+const { ROLES, ADMIN_ROLE, USER_ROLE } = require("../../constants");
 const logger = require("../../loaders/logger");
-const { validationResult } = require("../commons");
+const { validationResult, imageRequerid } = require("../commons");
 const { validJWT, hasRole } = require("../auth");
 const GenderTypeRepository = require("../../repositories/genderTypeRepository");
 const ContentTypeRepository = require("../../repositories/contentTypeRepository");
@@ -110,7 +112,24 @@ const deleteRequestValidations = [
 
 const getAllrequestValidation = [validJWT];
 
-const getRequestValidation = [validJWT, _idRequied, _idExist, validationResult];
+const getRequestValidation = [
+  validJWT,
+  _idRequied,
+  _idIsNumeric,
+  _idExist,
+  validationResult,
+];
+
+const postImageRequestValidations = [
+  validJWT,
+  hasRole(USER_ROLE, ADMIN_ROLE),
+  upload.single("image"),
+  _idRequied,
+  _idIsNumeric,
+  _idExist,
+  imageRequerid,
+  validationResult,
+];
 
 module.exports = {
   postRequestValidations,
@@ -118,4 +137,5 @@ module.exports = {
   getAllrequestValidation,
   getRequestValidation,
   deleteRequestValidations,
+  postImageRequestValidations,
 };

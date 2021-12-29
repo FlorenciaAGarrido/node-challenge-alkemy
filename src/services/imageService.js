@@ -9,7 +9,7 @@ const uploadCharacterImage = async (idCharacter, file) => {
   const character = await characterRepository.findById(idCharacter);
 
   if (character.image) {
-    await imageRepository.deleteImage(character.name, file.mimetype);
+    await imageRepository.deleteImage(character.image);
   }
 
   const imageURL = await imageRepository.uploadImage(
@@ -24,7 +24,7 @@ const uploadMovieImage = async (idMovie, file) => {
   const movie = await movieRepository.findById(idMovie);
 
   if (movie.image) {
-    await movieRepository.deleteImage(movie.title, file.mimetype);
+    await movieRepository.deleteImage(movie.image);
   }
 
   const imageURL = await imageRepository.uploadImage(
