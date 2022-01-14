@@ -41,7 +41,7 @@ const _roleValid = check("role")
     }
   });
 
-const _idRequied = check("id").not().isEmpty();
+const _idRequired = check("id").not().isEmpty();
 const _idIsNumeric = check("id").isNumeric();
 const _idExist = check("id").custom(async (id = "") => {
   const userFound = await userService.findById(id);
@@ -65,7 +65,7 @@ const postRequestValidations = [
 const putRequestValidations = [
   validJWT,
   hasRole(ADMIN_ROLE),
-  _idRequied,
+  _idRequired,
   _idIsNumeric,
   _idExist,
   _optionalEmailValid,
@@ -77,7 +77,7 @@ const putRequestValidations = [
 const deleteRequestValidations = [
   validJWT,
   hasRole(ADMIN_ROLE),
-  _idRequied,
+  _idRequired,
   _idIsNumeric,
   _idExist,
   validationResult,
@@ -85,7 +85,13 @@ const deleteRequestValidations = [
 
 const getAllrequestValidation = [validJWT];
 
-const getRequestValidation = [validJWT, _idRequied, _idExist, validationResult];
+const getRequestValidation = [
+  validJWT,
+  _idRequired,
+  _idIsNumeric,
+  _idExist,
+  validationResult,
+];
 
 module.exports = {
   postRequestValidations,

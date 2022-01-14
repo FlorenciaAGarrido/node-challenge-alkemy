@@ -6,7 +6,7 @@ const genderTypeRepository = new GenderTypeRepository();
 const contentTypeRepository = new ContentTypeRepository();
 
 const findById = async (id) => {
-  return await repository.findById(id);
+  return await repository.findByIdWithCharacters(id);
 };
 
 const findByTitle = async (title) => {
@@ -46,6 +46,10 @@ const remove = async (id) => {
   return await repository.remove(id);
 };
 
+const asociate = async (movie, character) => {
+  await movie.addCharacter(character);
+};
+
 module.exports = {
   findById,
   findByTitle,
@@ -53,4 +57,5 @@ module.exports = {
   save,
   update,
   remove,
+  asociate,
 };

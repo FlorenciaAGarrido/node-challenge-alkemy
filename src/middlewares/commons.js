@@ -9,7 +9,7 @@ const validResult = (req, res, next) => {
   next();
 };
 
-const imageRequerid = checkSchema({
+const imageRequired = checkSchema({
   image: {
     custom: {
       options: (value, { req }) => !!req.file,
@@ -20,5 +20,5 @@ const imageRequerid = checkSchema({
 
 module.exports = {
   validationResult: validResult,
-  imageRequerid,
+  imageRequired,
 };

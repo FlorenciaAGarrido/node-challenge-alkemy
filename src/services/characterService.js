@@ -4,7 +4,7 @@ const ImageRepository = require("../repositories/imageRepository");
 const imageRepository = new ImageRepository();
 
 const findById = async (id) => {
-  return await repository.findById(id);
+  return await repository.findByIdWithMovies(id);
 };
 
 const findByName = async (name) => {
@@ -29,6 +29,10 @@ const remove = async (id) => {
   return await repository.remove(id);
 };
 
+/*const asociate = async(character, movie) => {
+  await character.addMovie(movie);
+};*/
+
 module.exports = {
   findById,
   findByName,
@@ -36,4 +40,5 @@ module.exports = {
   save,
   update,
   remove,
+  //asociate
 };

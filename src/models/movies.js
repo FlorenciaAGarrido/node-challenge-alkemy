@@ -36,9 +36,11 @@ Movie.belongsToMany(require("./characters"), {
 Movie.belongsTo(require("./contentTypes"), {
   foreignKey: "contentTypeId",
   targetKey: "id",
+  as: "type",
 });
 
 Movie.belongsTo(require("./genderTypes"), {
   foreignKey: "genderTypeId",
   targetKey: "id",
+  as: "gender",
 });

@@ -101,6 +101,24 @@ const uploadMovieImage = async (req, res, next) => {
   }
 };
 
+/**
+ *
+ * @param {express.Request} req
+ * @param {express.Response} res
+ */
+const asocieteCharacter = async (req, res, next) => {
+  try {
+    const character = req.character;
+    const movie = req.movie;
+
+    await movieService.asociate(movie, character);
+
+    res.json(new Success());
+  } catch (err) {
+    next(err);
+  }
+};
+
 module.exports = {
   getAllMovies,
   createMovie,
@@ -108,4 +126,5 @@ module.exports = {
   getMovieById,
   deleteMovie,
   uploadMovieImage,
+  asocieteCharacter,
 };
