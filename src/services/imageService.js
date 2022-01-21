@@ -24,7 +24,7 @@ const uploadMovieImage = async (idMovie, file) => {
   const movie = await movieRepository.findById(idMovie);
 
   if (movie.image) {
-    await movieRepository.deleteImage(movie.image);
+    await imageRepository.deleteImage(movie.image);
   }
 
   const imageURL = await imageRepository.uploadImage(

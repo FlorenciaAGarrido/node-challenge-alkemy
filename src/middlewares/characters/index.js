@@ -109,17 +109,24 @@ const postImageRequestValidations = [
   validationResult,
 ];
 
-/*const asociationRequestValidations = [
-    validJWT,
-    hasRole(ADMIN_ROLE),
-    _idRequired('idMovie'),
-    _idIsNumeric('idMovie'),
-    _idCharacterExist,
-    _idRequired('idCharacter'),
-    _idIsNumeric('idCharacter'),
-    _idMovieExist,
-    validationResult
-]*/
+const _idMCRequired = (name) => {
+  return check(name).not().isEmpty();
+};
+const _idMCIsNumeric = (name) => {
+  return check(name).isNumeric();
+};
+
+const asociationRequestValidations = [
+  validJWT,
+  hasRole(ADMIN_ROLE),
+  _idMCRequired("idMovie"),
+  _idMCIsNumeric("idMovie"),
+  _idCharacterExist,
+  _idMCRequired("idCharacter"),
+  _idMCIsNumeric("idCharacter"),
+  _idMovieExist,
+  validationResult,
+];
 
 module.exports = {
   postRequestValidations,
@@ -128,5 +135,5 @@ module.exports = {
   getRequestValidation,
   deleteRequestValidations,
   postImageRequestValidations,
-  //asociationRequestValidations
+  asociationRequestValidations,
 };

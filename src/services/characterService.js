@@ -29,9 +29,9 @@ const remove = async (id) => {
   return await repository.remove(id);
 };
 
-/*const asociate = async(character, movie) => {
+const asociate = async (character, movie) => {
   await character.addMovie(movie);
-};*/
+};
 
 module.exports = {
   findById,
@@ -40,5 +40,5 @@ module.exports = {
   save,
   update,
   remove,
-  //asociate
+  asociate,
 };

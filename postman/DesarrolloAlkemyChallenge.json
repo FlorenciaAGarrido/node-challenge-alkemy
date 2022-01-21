@@ -25,8 +25,8 @@
                       "pm.test(\"Status code is not 500\", function () {\r",
                       "    pm.response.to.not.have.status(500);\r",
                       "});\r",
-                      "pm.test(\"Response time is less than 500ms\", function () {\r",
-                      "    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+                      "pm.test(\"Response time is less than 1500ms\", function () {\r",
+                      "    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
                       "});\r",
                       "\r",
                       "pm.test(\"Response is json\", function () {\r",
@@ -82,8 +82,8 @@
                       "pm.test(\"Status code is not 200\", function () {\r",
                       "    pm.response.to.not.have.status(200);\r",
                       "});\r",
-                      "pm.test(\"Response time is less than 500ms\", function () {\r",
-                      "    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+                      "pm.test(\"Response time is less than 1500ms\", function () {\r",
+                      "    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
                       "});\r",
                       "\r",
                       "pm.test(\"Response is json\", function () {\r",
@@ -135,8 +135,8 @@
                       "pm.test(\"Status code is not 200\", function () {\r",
                       "    pm.response.to.not.have.status(200);\r",
                       "});\r",
-                      "pm.test(\"Response time is less than 500ms\", function () {\r",
-                      "    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+                      "pm.test(\"Response time is less than 1500ms\", function () {\r",
+                      "    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
                       "});\r",
                       "\r",
                       "pm.test(\"Response is json\", function () {\r",
@@ -195,8 +195,8 @@
                       "pm.test(\"Status code is not 500\", function () {\r",
                       "    pm.response.to.not.have.status(500);\r",
                       "});\r",
-                      "pm.test(\"Response time is less than 500ms\", function () {\r",
-                      "    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+                      "pm.test(\"Response time is less than 1500ms\", function () {\r",
+                      "    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
                       "});\r",
                       "\r",
                       "pm.test(\"Response is json\", function () {\r",
@@ -224,13 +224,7 @@
               ],
               "request": {
                 "method": "POST",
-                "header": [
-                  {
-                    "key": "Authorization",
-                    "value": "{{token}}",
-                    "type": "text"
-                  }
-                ],
+                "header": [],
                 "body": {
                   "mode": "raw",
                   "raw": "{\r\n    \"email\": \"{{randomNumber}}@gmail.com\",\r\n    \"password\": \"123456\"\r\n}",
@@ -262,8 +256,8 @@
                       "pm.test(\"Status code is not 500\", function () {\r",
                       "    pm.response.to.not.have.status(500);\r",
                       "});\r",
-                      "pm.test(\"Response time is less than 500ms\", function () {\r",
-                      "    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+                      "pm.test(\"Response time is less than 1500ms\", function () {\r",
+                      "    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
                       "});\r",
                       "\r",
                       "pm.test(\"Response is json\", function () {\r",
@@ -337,8 +331,8 @@
                       "pm.test(\"Status code is not 500\", function () {\r",
                       "    pm.response.to.not.have.status(500);\r",
                       "});\r",
-                      "pm.test(\"Response time is less than 500ms\", function () {\r",
-                      "    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+                      "pm.test(\"Response time is less than 1500ms\", function () {\r",
+                      "    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
                       "});\r",
                       "\r",
                       "pm.test(\"Response is json\", function () {\r",
@@ -414,8 +408,8 @@
                       "pm.test(\"Status code is not 500\", function () {\r",
                       "    pm.response.to.not.have.status(500);\r",
                       "});\r",
-                      "pm.test(\"Response time is less than 500ms\", function () {\r",
-                      "    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+                      "pm.test(\"Response time is less than 1500ms\", function () {\r",
+                      "    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
                       "});\r",
                       "\r",
                       "pm.test(\"Response is json\", function () {\r",
@@ -435,7 +429,13 @@
               ],
               "request": {
                 "method": "GET",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "1111",
+                    "type": "text"
+                  }
+                ],
                 "url": {
                   "raw": "{{basepath}}/users",
                   "host": ["{{basepath}}"],
@@ -490,8 +490,8 @@
                       "pm.test(\"Status code is not 500\", function () {\r",
                       "    pm.response.to.not.have.status(500);\r",
                       "});\r",
-                      "pm.test(\"Response time is less than 500ms\", function () {\r",
-                      "    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+                      "pm.test(\"Response time is less than 1500ms\", function () {\r",
+                      "    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
                       "});\r",
                       "\r",
                       "pm.test(\"Response is json\", function () {\r",
@@ -562,8 +562,8 @@
                       "pm.test(\"Status code is not 500\", function () {\r",
                       "    pm.response.to.not.have.status(500);\r",
                       "});\r",
-                      "pm.test(\"Response time is less than 500ms\", function () {\r",
-                      "    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+                      "pm.test(\"Response time is less than 1500ms\", function () {\r",
+                      "    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
                       "});\r",
                       "\r",
                       "pm.test(\"Response is json\", function () {\r",
@@ -637,8 +637,8 @@
                       "pm.test(\"Status code is not 500\", function () {\r",
                       "    pm.response.to.not.have.status(500);\r",
                       "});\r",
-                      "pm.test(\"Response time is less than 500ms\", function () {\r",
-                      "    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+                      "pm.test(\"Response time is less than 1500ms\", function () {\r",
+                      "    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
                       "});\r",
                       "\r",
                       "pm.test(\"Response is json\", function () {\r",
@@ -707,8 +707,8 @@
                       "pm.test(\"Status code is not 500\", function () {\r",
                       "    pm.response.to.not.have.status(500);\r",
                       "});\r",
-                      "pm.test(\"Response time is less than 500ms\", function () {\r",
-                      "    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+                      "pm.test(\"Response time is less than 1500ms\", function () {\r",
+                      "    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
                       "});\r",
                       "\r",
                       "pm.test(\"Response is json\", function () {\r",
@@ -786,8 +786,8 @@
                       "pm.test(\"Status code is not 500\", function () {\r",
                       "    pm.response.to.not.have.status(500);\r",
                       "});\r",
-                      "pm.test(\"Response time is less than 500ms\", function () {\r",
-                      "    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+                      "pm.test(\"Response time is less than 1500ms\", function () {\r",
+                      "    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
                       "});\r",
                       "\r",
                       "pm.test(\"Response is json\", function () {\r",
@@ -847,8 +847,8 @@
                       "pm.test(\"Status code is not 500\", function () {\r",
                       "    pm.response.to.not.have.status(500);\r",
                       "});\r",
-                      "pm.test(\"Response time is less than 500ms\", function () {\r",
-                      "    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+                      "pm.test(\"Response time is less than 1500ms\", function () {\r",
+                      "    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
                       "});\r",
                       "\r",
                       "pm.test(\"Response is json\", function () {\r",
@@ -922,8 +922,8 @@
                       "pm.test(\"Status code is not 500\", function () {\r",
                       "    pm.response.to.not.have.status(500);\r",
                       "});\r",
-                      "pm.test(\"Response time is less than 500ms\", function () {\r",
-                      "    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+                      "pm.test(\"Response time is less than 1500ms\", function () {\r",
+                      "    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
                       "});\r",
                       "\r",
                       "pm.test(\"Response is json\", function () {\r",
@@ -965,7 +965,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n    \"name\": \"Spiderman {{randomNumber}}\",\r\n    \"age\": 15,\r\n    \"history\": \"Lorems imput\",\r\n    \"weigth\": 65\r\n}",
+                  "raw": "{\r\n    \"name\": \"Spiderman{{randomNumber}}\",\r\n    \"age\": 15,\r\n    \"history\": \"Lorems imput\",\r\n    \"weigth\": 65\r\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -994,8 +994,8 @@
                       "pm.test(\"Status code is not 500\", function () {\r",
                       "    pm.response.to.not.have.status(500);\r",
                       "});\r",
-                      "pm.test(\"Response time is less than 500ms\", function () {\r",
-                      "    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+                      "pm.test(\"Response time is less than 1500ms\", function () {\r",
+                      "    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
                       "});\r",
                       "\r",
                       "pm.test(\"Response is json\", function () {\r",
@@ -1069,8 +1069,8 @@
                       "pm.test(\"Status code is not 500\", function () {\r",
                       "    pm.response.to.not.have.status(500);\r",
                       "});\r",
-                      "pm.test(\"Response time is less than 500ms\", function () {\r",
-                      "    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+                      "pm.test(\"Response time is less than 1500ms\", function () {\r",
+                      "    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
                       "});\r",
                       "\r",
                       "pm.test(\"Response is json\", function () {\r",
@@ -1109,7 +1109,7 @@
                   "variable": [
                     {
                       "key": "id",
-                      "value": "{{characterId}}"
+                      "value": "235"
                     }
                   ]
                 }
@@ -1130,8 +1130,8 @@
                       "pm.test(\"Status code is not 500\", function () {\r",
                       "    pm.response.to.not.have.status(500);\r",
                       "});\r",
-                      "pm.test(\"Response time is less than 500ms\", function () {\r",
-                      "    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+                      "pm.test(\"Response time is less than 1500ms\", function () {\r",
+                      "    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
                       "});\r",
                       "\r",
                       "pm.test(\"Response is json\", function () {\r",
@@ -1200,8 +1200,8 @@
                       "pm.test(\"Status code is not 500\", function () {\r",
                       "    pm.response.to.not.have.status(500);\r",
                       "});\r",
-                      "pm.test(\"Response time is less than 500ms\", function () {\r",
-                      "    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+                      "pm.test(\"Response time is less than 1500ms\", function () {\r",
+                      "    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
                       "});\r",
                       "\r",
                       "pm.test(\"Response is json\", function () {\r",
@@ -1229,21 +1229,24 @@
                   }
                 ],
                 "url": {
-                  "raw": "{{basepath}}/characters?filter[name]=an&filter[age]=35&filter[weigth]=72",
+                  "raw": "{{basepath}}/characters",
                   "host": ["{{basepath}}"],
                   "path": ["characters"],
                   "query": [
                     {
                       "key": "filter[name]",
-                      "value": "an"
+                      "value": "sp",
+                      "disabled": true
                     },
                     {
                       "key": "filter[age]",
-                      "value": "35"
+                      "value": "35",
+                      "disabled": true
                     },
                     {
                       "key": "filter[weigth]",
-                      "value": "72"
+                      "value": "72",
+                      "disabled": true
                     },
                     {
                       "key": "options[limit]",
@@ -1274,8 +1277,8 @@
                       "pm.test(\"Status code is not 500\", function () {\r",
                       "    pm.response.to.not.have.status(500);\r",
                       "});\r",
-                      "pm.test(\"Response time is less than 500ms\", function () {\r",
-                      "    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+                      "pm.test(\"Response time is less than 1500ms\", function () {\r",
+                      "    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
                       "});\r",
                       "\r",
                       "pm.test(\"Response is json\", function () {\r",
@@ -1295,7 +1298,13 @@
               ],
               "request": {
                 "method": "GET",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "11111",
+                    "type": "text"
+                  }
+                ],
                 "url": {
                   "raw": "{{basepath}}/characters",
                   "host": ["{{basepath}}"],
@@ -1350,8 +1359,8 @@
                       "pm.test(\"Status code is not 500\", function () {\r",
                       "    pm.response.to.not.have.status(500);\r",
                       "});\r",
-                      "pm.test(\"Response time is less than 500ms\", function () {\r",
-                      "    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+                      "pm.test(\"Response time is less than 1500ms\", function () {\r",
+                      "    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
                       "});\r",
                       "\r",
                       "pm.test(\"Response is json\", function () {\r",
@@ -1420,8 +1429,8 @@
                       "pm.test(\"Status code is not 500\", function () {\r",
                       "    pm.response.to.not.have.status(500);\r",
                       "});\r",
-                      "pm.test(\"Response time is less than 500ms\", function () {\r",
-                      "    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+                      "pm.test(\"Response time is less than 1500ms\", function () {\r",
+                      "    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
                       "});\r",
                       "\r",
                       "pm.test(\"Response is json\", function () {\r",
@@ -1483,10 +1492,10 @@
           ]
         },
         {
-          "name": "Delete Character",
+          "name": "Images",
           "item": [
             {
-              "name": "Delete Character - Success",
+              "name": "Upload Character Image - Success",
               "event": [
                 {
                   "listen": "test",
@@ -1496,11 +1505,11 @@
                       "    pm.response.to.have.status(200);\r",
                       "});\r",
                       "\r",
-                      "pm.test(\"Status code is not 500\", function () {\r",
-                      "    pm.response.to.not.have.status(500);\r",
+                      "pm.test(\"Status code is not 1000\", function () {\r",
+                      "    pm.response.to.not.have.status(1000);\r",
                       "});\r",
-                      "pm.test(\"Response time is less than 500ms\", function () {\r",
-                      "    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+                      "pm.test(\"Response time is less than 3500ms\", function () {\r",
+                      "    pm.expect(pm.response.responseTime).to.be.below(3500);\r",
                       "});\r",
                       "\r",
                       "pm.test(\"Response is json\", function () {\r",
@@ -1510,21 +1519,15 @@
                       "pm.test(\"Response have correct properties\", function () {\r",
                       "    var jsonData = pm.response.json();\r",
                       "    pm.expect(jsonData).to.have.property('data');\r",
+                      "    pm.expect(jsonData.data).to.be.an('array');\r",
                       "});"
                     ],
-                    "type": "text/javascript"
-                  }
-                },
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "exec": [""],
                     "type": "text/javascript"
                   }
                 }
               ],
               "request": {
-                "method": "DELETE",
+                "method": "POST",
                 "header": [
                   {
                     "key": "Authorization",
@@ -1532,22 +1535,31 @@
                     "type": "text"
                   }
                 ],
-                "url": {
-                  "raw": "{{basepath}}/characters/:id",
-                  "host": ["{{basepath}}"],
-                  "path": ["characters", ":id"],
-                  "variable": [
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "image",
+                      "type": "file",
+                      "src": "test.jpg"
+                    },
                     {
                       "key": "id",
-                      "value": "{{characterId}}"
+                      "value": "{{characterId}}",
+                      "type": "text"
                     }
                   ]
+                },
+                "url": {
+                  "raw": "{{basepath}}/characters/image",
+                  "host": ["{{basepath}}"],
+                  "path": ["characters", "image"]
                 }
               },
               "response": []
             },
             {
-              "name": "Delete Character - Failure",
+              "name": "Upload Character Image - Failure",
               "event": [
                 {
                   "listen": "test",
@@ -1560,8 +1572,8 @@
                       "pm.test(\"Status code is not 500\", function () {\r",
                       "    pm.response.to.not.have.status(500);\r",
                       "});\r",
-                      "pm.test(\"Response time is less than 500ms\", function () {\r",
-                      "    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+                      "pm.test(\"Response time is less than 1500ms\", function () {\r",
+                      "    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
                       "});\r",
                       "\r",
                       "pm.test(\"Response is json\", function () {\r",
@@ -1579,17 +1591,10 @@
                     ],
                     "type": "text/javascript"
                   }
-                },
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "exec": [""],
-                    "type": "text/javascript"
-                  }
                 }
               ],
               "request": {
-                "method": "DELETE",
+                "method": "POST",
                 "header": [
                   {
                     "key": "Authorization",
@@ -1597,86 +1602,27 @@
                     "type": "text"
                   }
                 ],
-                "url": {
-                  "raw": "{{basepath}}/characters/:id",
-                  "host": ["{{basepath}}"],
-                  "path": ["characters", ":id"],
-                  "variable": [
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
                     {
-                      "key": "id",
-                      "value": "234143134124"
-                    }
-                  ]
-                }
-              },
-              "response": []
-            }
-          ]
-        },
-        {
-          "name": "Asociate Movie",
-          "item": [
-            {
-              "name": "Asociate Movie - Success",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {\r",
-                      "    pm.response.to.have.status(200);\r",
-                      "});\r",
-                      "\r",
-                      "pm.test(\"Status code is not 500\", function () {\r",
-                      "    pm.response.to.not.have.status(500);\r",
-                      "});\r",
-                      "pm.test(\"Response time is less than 500ms\", function () {\r",
-                      "    pm.expect(pm.response.responseTime).to.be.below(500);\r",
-                      "});\r",
-                      "\r",
-                      "pm.test(\"Response is json\", function () {\r",
-                      "    pm.response.to.be.json;\r",
-                      "});\r",
-                      "\r",
-                      "pm.test(\"Response have correct properties\", function () {\r",
-                      "    var jsonData = pm.response.json();\r",
-                      "    pm.expect(jsonData).to.have.property('data');\r",
-                      "});"
-                    ],
-                    "type": "text/javascript"
-                  }
-                },
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "exec": [""],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "request": {
-                "method": "PUT",
-                "header": [
-                  {
-                    "key": "Authorization",
-                    "value": "{{token}}",
-                    "type": "text"
-                  }
-                ],
-                "url": {
-                  "raw": "{{basepath}}/characters/:idCharacter/movies/:idMovie",
-                  "host": ["{{basepath}}"],
-                  "path": ["characters", ":idCharacter", "movies", ":idMovie"],
-                  "variable": [
-                    {
-                      "key": "idCharacter",
-                      "value": ""
+                      "key": "image",
+                      "type": "file",
+                      "src": [],
+                      "disabled": true
                     },
                     {
-                      "key": "idMovie",
-                      "value": ""
+                      "key": "id",
+                      "value": "4",
+                      "type": "text",
+                      "disabled": true
                     }
                   ]
+                },
+                "url": {
+                  "raw": "{{basepath}}/characters/image",
+                  "host": ["{{basepath}}"],
+                  "path": ["characters", "image"]
                 }
               },
               "response": []
@@ -1705,8 +1651,8 @@
                       "pm.test(\"Status code is not 500\", function () {\r",
                       "    pm.response.to.not.have.status(500);\r",
                       "});\r",
-                      "pm.test(\"Response time is less than 500ms\", function () {\r",
-                      "    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+                      "pm.test(\"Response time is less than 2000ms\", function () {\r",
+                      "    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
                       "});\r",
                       "\r",
                       "pm.test(\"Response is json\", function () {\r",
@@ -1748,7 +1694,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n    \"title\": \"Cenicienta {{randomNumber}}\",\r\n    \"creationDate\": \"2010-12-10\",\r\n    \"calification\": 10,\r\n    \"genderType\": \"ADVENTURE\",\r\n    \"contentType\": \"MOVIE\"\r\n}",
+                  "raw": "{\r\n    \"title\": \"Cenicienta {{randomNumber}}\",\r\n    \"creationDate\": \"2010-12-11\",\r\n    \"calification\": 10,\r\n    \"genderType\": \"ADVENTURE\",\r\n    \"contentType\": \"MOVIE\"\r\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -1777,8 +1723,8 @@
                       "pm.test(\"Status code is not 500\", function () {\r",
                       "    pm.response.to.not.have.status(500);\r",
                       "});\r",
-                      "pm.test(\"Response time is less than 500ms\", function () {\r",
-                      "    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+                      "pm.test(\"Response time is less than 1500ms\", function () {\r",
+                      "    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
                       "});\r",
                       "\r",
                       "pm.test(\"Response is json\", function () {\r",
@@ -1852,8 +1798,8 @@
                       "pm.test(\"Status code is not 500\", function () {\r",
                       "    pm.response.to.not.have.status(500);\r",
                       "});\r",
-                      "pm.test(\"Response time is less than 500ms\", function () {\r",
-                      "    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+                      "pm.test(\"Response time is less than 1500ms\", function () {\r",
+                      "    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
                       "});\r",
                       "\r",
                       "pm.test(\"Response is json\", function () {\r",
@@ -1892,7 +1838,7 @@
                   "variable": [
                     {
                       "key": "id",
-                      "value": "{{characterId}}"
+                      "value": "{{movieId}}"
                     }
                   ]
                 }
@@ -1913,8 +1859,8 @@
                       "pm.test(\"Status code is not 500\", function () {\r",
                       "    pm.response.to.not.have.status(500);\r",
                       "});\r",
-                      "pm.test(\"Response time is less than 500ms\", function () {\r",
-                      "    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+                      "pm.test(\"Response time is less than 1500ms\", function () {\r",
+                      "    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
                       "});\r",
                       "\r",
                       "pm.test(\"Response is json\", function () {\r",
@@ -1983,8 +1929,8 @@
                       "pm.test(\"Status code is not 500\", function () {\r",
                       "    pm.response.to.not.have.status(500);\r",
                       "});\r",
-                      "pm.test(\"Response time is less than 500ms\", function () {\r",
-                      "    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+                      "pm.test(\"Response time is less than 1500ms\", function () {\r",
+                      "    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
                       "});\r",
                       "\r",
                       "pm.test(\"Response is json\", function () {\r",
@@ -2012,7 +1958,7 @@
                   }
                 ],
                 "url": {
-                  "raw": "{{basepath}}/movies?filter[title]=Cenicienta&filter[calification]=10&filter[creationDate]=2021-03-25&options[order]=creationDate;DESC",
+                  "raw": "{{basepath}}/movies?filter[title]=Cenicienta&filter[creationDate]=2021-03-25",
                   "host": ["{{basepath}}"],
                   "path": ["movies"],
                   "query": [
@@ -2022,7 +1968,8 @@
                     },
                     {
                       "key": "filter[calification]",
-                      "value": "10"
+                      "value": "10",
+                      "disabled": true
                     },
                     {
                       "key": "filter[creationDate]",
@@ -2040,7 +1987,8 @@
                     },
                     {
                       "key": "options[order]",
-                      "value": "creationDate;DESC"
+                      "value": "creationDate;DESC",
+                      "disabled": true
                     }
                   ]
                 }
@@ -2061,8 +2009,8 @@
                       "pm.test(\"Status code is not 500\", function () {\r",
                       "    pm.response.to.not.have.status(500);\r",
                       "});\r",
-                      "pm.test(\"Response time is less than 500ms\", function () {\r",
-                      "    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+                      "pm.test(\"Response time is less than 1500ms\", function () {\r",
+                      "    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
                       "});\r",
                       "\r",
                       "pm.test(\"Response is json\", function () {\r",
@@ -2137,8 +2085,8 @@
                       "pm.test(\"Status code is not 500\", function () {\r",
                       "    pm.response.to.not.have.status(500);\r",
                       "});\r",
-                      "pm.test(\"Response time is less than 500ms\", function () {\r",
-                      "    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+                      "pm.test(\"Response time is less than 1500ms\", function () {\r",
+                      "    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
                       "});\r",
                       "\r",
                       "pm.test(\"Response is json\", function () {\r",
@@ -2207,8 +2155,8 @@
                       "pm.test(\"Status code is not 500\", function () {\r",
                       "    pm.response.to.not.have.status(500);\r",
                       "});\r",
-                      "pm.test(\"Response time is less than 500ms\", function () {\r",
-                      "    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+                      "pm.test(\"Response time is less than 1500ms\", function () {\r",
+                      "    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
                       "});\r",
                       "\r",
                       "pm.test(\"Response is json\", function () {\r",
@@ -2270,10 +2218,10 @@
           ]
         },
         {
-          "name": "Delete Movie",
+          "name": "Images",
           "item": [
             {
-              "name": "Delete Movie - Success",
+              "name": "Upload Movie Image - Success",
               "event": [
                 {
                   "listen": "test",
@@ -2286,8 +2234,8 @@
                       "pm.test(\"Status code is not 500\", function () {\r",
                       "    pm.response.to.not.have.status(500);\r",
                       "});\r",
-                      "pm.test(\"Response time is less than 500ms\", function () {\r",
-                      "    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+                      "pm.test(\"Response time is less than 3500ms\", function () {\r",
+                      "    pm.expect(pm.response.responseTime).to.be.below(3500);\r",
                       "});\r",
                       "\r",
                       "pm.test(\"Response is json\", function () {\r",
@@ -2297,21 +2245,15 @@
                       "pm.test(\"Response have correct properties\", function () {\r",
                       "    var jsonData = pm.response.json();\r",
                       "    pm.expect(jsonData).to.have.property('data');\r",
+                      "    pm.expect(jsonData.data).to.be.an('array');\r",
                       "});"
                     ],
-                    "type": "text/javascript"
-                  }
-                },
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "exec": [""],
                     "type": "text/javascript"
                   }
                 }
               ],
               "request": {
-                "method": "DELETE",
+                "method": "POST",
                 "header": [
                   {
                     "key": "Authorization",
@@ -2319,22 +2261,31 @@
                     "type": "text"
                   }
                 ],
-                "url": {
-                  "raw": "{{basepath}}/movies/:id",
-                  "host": ["{{basepath}}"],
-                  "path": ["movies", ":id"],
-                  "variable": [
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "image",
+                      "type": "file",
+                      "src": "test.jpg"
+                    },
                     {
                       "key": "id",
-                      "value": "{{movieId}}"
+                      "value": "{{movieId}}",
+                      "type": "text"
                     }
                   ]
+                },
+                "url": {
+                  "raw": "{{basepath}}/movies/image",
+                  "host": ["{{basepath}}"],
+                  "path": ["movies", "image"]
                 }
               },
               "response": []
             },
             {
-              "name": "Delete Character - Failure",
+              "name": "Upload Movie Image - Failure",
               "event": [
                 {
                   "listen": "test",
@@ -2347,8 +2298,8 @@
                       "pm.test(\"Status code is not 500\", function () {\r",
                       "    pm.response.to.not.have.status(500);\r",
                       "});\r",
-                      "pm.test(\"Response time is less than 500ms\", function () {\r",
-                      "    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+                      "pm.test(\"Response time is less than 1500ms\", function () {\r",
+                      "    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
                       "});\r",
                       "\r",
                       "pm.test(\"Response is json\", function () {\r",
@@ -2366,17 +2317,10 @@
                     ],
                     "type": "text/javascript"
                   }
-                },
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "exec": [""],
-                    "type": "text/javascript"
-                  }
                 }
               ],
               "request": {
-                "method": "DELETE",
+                "method": "POST",
                 "header": [
                   {
                     "key": "Authorization",
@@ -2384,22 +2328,38 @@
                     "type": "text"
                   }
                 ],
-                "url": {
-                  "raw": "{{basepath}}/movies/:id",
-                  "host": ["{{basepath}}"],
-                  "path": ["movies", ":id"],
-                  "variable": [
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "image",
+                      "type": "file",
+                      "src": [],
+                      "disabled": true
+                    },
                     {
                       "key": "id",
-                      "value": "234143134124"
+                      "value": "4",
+                      "type": "text",
+                      "disabled": true
                     }
                   ]
+                },
+                "url": {
+                  "raw": "{{basepath}}/movies/image",
+                  "host": ["{{basepath}}"],
+                  "path": ["movies", "image"]
                 }
               },
               "response": []
             }
           ]
-        },
+        }
+      ]
+    },
+    {
+      "name": "Asociates",
+      "item": [
         {
           "name": "Asociate Character",
           "item": [
@@ -2417,8 +2377,8 @@
                       "pm.test(\"Status code is not 500\", function () {\r",
                       "    pm.response.to.not.have.status(500);\r",
                       "});\r",
-                      "pm.test(\"Response time is less than 500ms\", function () {\r",
-                      "    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+                      "pm.test(\"Response time is less than 1500ms\", function () {\r",
+                      "    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
                       "});\r",
                       "\r",
                       "pm.test(\"Response is json\", function () {\r",
@@ -2458,11 +2418,82 @@
                   "variable": [
                     {
                       "key": "idMovie",
-                      "value": "254"
+                      "value": "{{movieId}}"
                     },
                     {
                       "key": "idCharacter",
-                      "value": "24"
+                      "value": "{{characterId}}"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Asociate Movie",
+          "item": [
+            {
+              "name": "Asociate Movie - Success",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {\r",
+                      "    pm.response.to.have.status(200);\r",
+                      "});\r",
+                      "\r",
+                      "pm.test(\"Status code is not 500\", function () {\r",
+                      "    pm.response.to.not.have.status(500);\r",
+                      "});\r",
+                      "pm.test(\"Response time is less than 1500ms\", function () {\r",
+                      "    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
+                      "});\r",
+                      "\r",
+                      "pm.test(\"Response is json\", function () {\r",
+                      "    pm.response.to.be.json;\r",
+                      "});\r",
+                      "\r",
+                      "pm.test(\"Response have correct properties\", function () {\r",
+                      "    var jsonData = pm.response.json();\r",
+                      "    pm.expect(jsonData).to.have.property('status');\r",
+                      "    pm.expect(jsonData.status).to.eql('OK');\r",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "exec": [""],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{token}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{basepath}}/characters/:idCharacter/movies/:idMovie",
+                  "host": ["{{basepath}}"],
+                  "path": ["characters", ":idCharacter", "movies", ":idMovie"],
+                  "variable": [
+                    {
+                      "key": "idCharacter",
+                      "value": "{{characterId}}"
+                    },
+                    {
+                      "key": "idMovie",
+                      "value": "{{movieId}}"
                     }
                   ]
                 }
@@ -2474,273 +2505,286 @@
       ]
     },
     {
-      "name": "Images",
+      "name": "Deletes",
       "item": [
         {
-          "name": "Upload Character Image - Success",
-          "event": [
+          "name": "Characters",
+          "item": [
             {
-              "listen": "test",
-              "script": {
-                "exec": [
-                  "pm.test(\"Status code is 200\", function () {\r",
-                  "    pm.response.to.have.status(200);\r",
-                  "});\r",
-                  "\r",
-                  "pm.test(\"Status code is not 500\", function () {\r",
-                  "    pm.response.to.not.have.status(500);\r",
-                  "});\r",
-                  "pm.test(\"Response time is less than 750ms\", function () {\r",
-                  "    pm.expect(pm.response.responseTime).to.be.below(750);\r",
-                  "});\r",
-                  "\r",
-                  "pm.test(\"Response is json\", function () {\r",
-                  "    pm.response.to.be.json;\r",
-                  "});\r",
-                  "\r",
-                  "pm.test(\"Response have correct properties\", function () {\r",
-                  "    var jsonData = pm.response.json();\r",
-                  "    pm.expect(jsonData).to.have.property('data');\r",
-                  "    pm.expect(jsonData.data).to.be.an('array');\r",
-                  "});"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{token}}",
-                "type": "text"
-              }
-            ],
-            "body": {
-              "mode": "formdata",
-              "formdata": [
+              "name": "Delete Character",
+              "item": [
                 {
-                  "key": "image",
-                  "type": "file",
-                  "src": "/C:/Users/Fer/Pictures/11792.jpg"
+                  "name": "Delete Character - Success",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "exec": [
+                          "pm.test(\"Status code is 200\", function () {\r",
+                          "    pm.response.to.have.status(200);\r",
+                          "});\r",
+                          "\r",
+                          "pm.test(\"Status code is not 500\", function () {\r",
+                          "    pm.response.to.not.have.status(500);\r",
+                          "});\r",
+                          "pm.test(\"Response time is less than 1500ms\", function () {\r",
+                          "    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
+                          "});\r",
+                          "\r",
+                          "pm.test(\"Response is json\", function () {\r",
+                          "    pm.response.to.be.json;\r",
+                          "});\r",
+                          "\r",
+                          "pm.test(\"Response have correct properties\", function () {\r",
+                          "    var jsonData = pm.response.json();\r",
+                          "    pm.expect(jsonData).to.have.property('data');\r",
+                          "});"
+                        ],
+                        "type": "text/javascript"
+                      }
+                    },
+                    {
+                      "listen": "prerequest",
+                      "script": {
+                        "exec": [""],
+                        "type": "text/javascript"
+                      }
+                    }
+                  ],
+                  "request": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Authorization",
+                        "value": "{{token}}",
+                        "type": "text"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{basepath}}/characters/:id",
+                      "host": ["{{basepath}}"],
+                      "path": ["characters", ":id"],
+                      "query": [
+                        {
+                          "key": "",
+                          "value": "",
+                          "disabled": true
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id",
+                          "value": "{{characterId}}"
+                        }
+                      ]
+                    }
+                  },
+                  "response": []
                 },
                 {
-                  "key": "id",
-                  "value": "4",
-                  "type": "text"
+                  "name": "Delete Character - Failure",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "exec": [
+                          "pm.test(\"Status code is 400\", function () {\r",
+                          "    pm.response.to.have.status(400);\r",
+                          "});\r",
+                          "\r",
+                          "pm.test(\"Status code is not 500\", function () {\r",
+                          "    pm.response.to.not.have.status(500);\r",
+                          "});\r",
+                          "pm.test(\"Response time is less than 1500ms\", function () {\r",
+                          "    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
+                          "});\r",
+                          "\r",
+                          "pm.test(\"Response is json\", function () {\r",
+                          "    pm.response.to.be.json;\r",
+                          "});\r",
+                          "\r",
+                          "pm.test(\"Response have correct properties\", function () {\r",
+                          "    var jsonData = pm.response.json();\r",
+                          "    pm.expect(jsonData).to.have.property('error');\r",
+                          "    pm.expect(jsonData.error).to.have.property('message');\r",
+                          "    pm.expect(jsonData.error.message).to.be.an('string');\r",
+                          "    pm.expect(jsonData.error).to.have.property('detail');\r",
+                          "    pm.expect(jsonData.error.detail).to.be.an('array');\r",
+                          "});"
+                        ],
+                        "type": "text/javascript"
+                      }
+                    },
+                    {
+                      "listen": "prerequest",
+                      "script": {
+                        "exec": [""],
+                        "type": "text/javascript"
+                      }
+                    }
+                  ],
+                  "request": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Authorization",
+                        "value": "{{token}}",
+                        "type": "text"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{basepath}}/characters/:id",
+                      "host": ["{{basepath}}"],
+                      "path": ["characters", ":id"],
+                      "variable": [
+                        {
+                          "key": "id",
+                          "value": "234143134124"
+                        }
+                      ]
+                    }
+                  },
+                  "response": []
                 }
               ]
-            },
-            "url": {
-              "raw": "{{basepath}}/characters/image",
-              "host": ["{{basepath}}"],
-              "path": ["characters", "image"]
             }
-          },
-          "response": []
+          ]
         },
         {
-          "name": "Upload Movie Image - Success",
-          "event": [
+          "name": "Movies",
+          "item": [
             {
-              "listen": "test",
-              "script": {
-                "exec": [
-                  "pm.test(\"Status code is 200\", function () {\r",
-                  "    pm.response.to.have.status(200);\r",
-                  "});\r",
-                  "\r",
-                  "pm.test(\"Status code is not 500\", function () {\r",
-                  "    pm.response.to.not.have.status(500);\r",
-                  "});\r",
-                  "pm.test(\"Response time is less than 750ms\", function () {\r",
-                  "    pm.expect(pm.response.responseTime).to.be.below(750);\r",
-                  "});\r",
-                  "\r",
-                  "pm.test(\"Response is json\", function () {\r",
-                  "    pm.response.to.be.json;\r",
-                  "});\r",
-                  "\r",
-                  "pm.test(\"Response have correct properties\", function () {\r",
-                  "    var jsonData = pm.response.json();\r",
-                  "    pm.expect(jsonData).to.have.property('data');\r",
-                  "    pm.expect(jsonData.data).to.be.an('array');\r",
-                  "});"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{token}}",
-                "type": "text"
-              }
-            ],
-            "body": {
-              "mode": "formdata",
-              "formdata": [
+              "name": "Delete Movie",
+              "item": [
                 {
-                  "key": "image",
-                  "type": "file",
-                  "src": "/C:/Users/Fer/Pictures/Ktu gAMES.png"
+                  "name": "Delete Movie - Success",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "exec": [
+                          "pm.test(\"Status code is 200\", function () {\r",
+                          "    pm.response.to.have.status(200);\r",
+                          "});\r",
+                          "\r",
+                          "pm.test(\"Status code is not 500\", function () {\r",
+                          "    pm.response.to.not.have.status(500);\r",
+                          "});\r",
+                          "pm.test(\"Response time is less than 1500ms\", function () {\r",
+                          "    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
+                          "});\r",
+                          "\r",
+                          "pm.test(\"Response is json\", function () {\r",
+                          "    pm.response.to.be.json;\r",
+                          "});\r",
+                          "\r",
+                          "pm.test(\"Response have correct properties\", function () {\r",
+                          "    var jsonData = pm.response.json();\r",
+                          "    pm.expect(jsonData).to.have.property('data');\r",
+                          "});"
+                        ],
+                        "type": "text/javascript"
+                      }
+                    },
+                    {
+                      "listen": "prerequest",
+                      "script": {
+                        "exec": [""],
+                        "type": "text/javascript"
+                      }
+                    }
+                  ],
+                  "request": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Authorization",
+                        "value": "{{token}}",
+                        "type": "text"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{basepath}}/movies/:id",
+                      "host": ["{{basepath}}"],
+                      "path": ["movies", ":id"],
+                      "variable": [
+                        {
+                          "key": "id",
+                          "value": "{{movieId}}"
+                        }
+                      ]
+                    }
+                  },
+                  "response": []
                 },
                 {
-                  "key": "id",
-                  "value": "254",
-                  "type": "text"
+                  "name": "Delete Character - Failure",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "exec": [
+                          "pm.test(\"Status code is 400\", function () {\r",
+                          "    pm.response.to.have.status(400);\r",
+                          "});\r",
+                          "\r",
+                          "pm.test(\"Status code is not 500\", function () {\r",
+                          "    pm.response.to.not.have.status(500);\r",
+                          "});\r",
+                          "pm.test(\"Response time is less than 1500ms\", function () {\r",
+                          "    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
+                          "});\r",
+                          "\r",
+                          "pm.test(\"Response is json\", function () {\r",
+                          "    pm.response.to.be.json;\r",
+                          "});\r",
+                          "\r",
+                          "pm.test(\"Response have correct properties\", function () {\r",
+                          "    var jsonData = pm.response.json();\r",
+                          "    pm.expect(jsonData).to.have.property('error');\r",
+                          "    pm.expect(jsonData.error).to.have.property('message');\r",
+                          "    pm.expect(jsonData.error.message).to.be.an('string');\r",
+                          "    pm.expect(jsonData.error).to.have.property('detail');\r",
+                          "    pm.expect(jsonData.error.detail).to.be.an('array');\r",
+                          "});"
+                        ],
+                        "type": "text/javascript"
+                      }
+                    },
+                    {
+                      "listen": "prerequest",
+                      "script": {
+                        "exec": [""],
+                        "type": "text/javascript"
+                      }
+                    }
+                  ],
+                  "request": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Authorization",
+                        "value": "{{token}}",
+                        "type": "text"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{basepath}}/movies/:id",
+                      "host": ["{{basepath}}"],
+                      "path": ["movies", ":id"],
+                      "variable": [
+                        {
+                          "key": "id",
+                          "value": "234143134124"
+                        }
+                      ]
+                    }
+                  },
+                  "response": []
                 }
               ]
-            },
-            "url": {
-              "raw": "{{basepath}}/movies/image",
-              "host": ["{{basepath}}"],
-              "path": ["movies", "image"]
             }
-          },
-          "response": []
-        },
-        {
-          "name": "Upload Character Image - Failure",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "exec": [
-                  "pm.test(\"Status code is 400\", function () {\r",
-                  "    pm.response.to.have.status(400);\r",
-                  "});\r",
-                  "\r",
-                  "pm.test(\"Status code is not 500\", function () {\r",
-                  "    pm.response.to.not.have.status(500);\r",
-                  "});\r",
-                  "pm.test(\"Response time is less than 500ms\", function () {\r",
-                  "    pm.expect(pm.response.responseTime).to.be.below(500);\r",
-                  "});\r",
-                  "\r",
-                  "pm.test(\"Response is json\", function () {\r",
-                  "    pm.response.to.be.json;\r",
-                  "});\r",
-                  "\r",
-                  "pm.test(\"Response have correct properties\", function () {\r",
-                  "    var jsonData = pm.response.json();\r",
-                  "    pm.expect(jsonData).to.have.property('error');\r",
-                  "    pm.expect(jsonData.error).to.have.property('message');\r",
-                  "    pm.expect(jsonData.error.message).to.be.an('string');\r",
-                  "    pm.expect(jsonData.error).to.have.property('detail');\r",
-                  "    pm.expect(jsonData.error.detail).to.be.an('array');\r",
-                  "});"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{token}}",
-                "type": "text"
-              }
-            ],
-            "body": {
-              "mode": "formdata",
-              "formdata": [
-                {
-                  "key": "image",
-                  "type": "file",
-                  "src": [],
-                  "disabled": true
-                },
-                {
-                  "key": "id",
-                  "value": "4",
-                  "type": "text",
-                  "disabled": true
-                }
-              ]
-            },
-            "url": {
-              "raw": "{{basepath}}/characters/image",
-              "host": ["{{basepath}}"],
-              "path": ["characters", "image"]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Upload Movie Image - Failure",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "exec": [
-                  "pm.test(\"Status code is 400\", function () {\r",
-                  "    pm.response.to.have.status(400);\r",
-                  "});\r",
-                  "\r",
-                  "pm.test(\"Status code is not 500\", function () {\r",
-                  "    pm.response.to.not.have.status(500);\r",
-                  "});\r",
-                  "pm.test(\"Response time is less than 500ms\", function () {\r",
-                  "    pm.expect(pm.response.responseTime).to.be.below(500);\r",
-                  "});\r",
-                  "\r",
-                  "pm.test(\"Response is json\", function () {\r",
-                  "    pm.response.to.be.json;\r",
-                  "});\r",
-                  "\r",
-                  "pm.test(\"Response have correct properties\", function () {\r",
-                  "    var jsonData = pm.response.json();\r",
-                  "    pm.expect(jsonData).to.have.property('error');\r",
-                  "    pm.expect(jsonData.error).to.have.property('message');\r",
-                  "    pm.expect(jsonData.error.message).to.be.an('string');\r",
-                  "    pm.expect(jsonData.error).to.have.property('detail');\r",
-                  "    pm.expect(jsonData.error.detail).to.be.an('array');\r",
-                  "});"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{token}}",
-                "type": "text"
-              }
-            ],
-            "body": {
-              "mode": "formdata",
-              "formdata": [
-                {
-                  "key": "image",
-                  "type": "file",
-                  "src": [],
-                  "disabled": true
-                },
-                {
-                  "key": "id",
-                  "value": "4",
-                  "type": "text",
-                  "disabled": true
-                }
-              ]
-            },
-            "url": {
-              "raw": "{{basepath}}/movies/image",
-              "host": ["{{basepath}}"],
-              "path": ["movies", "image"]
-            }
-          },
-          "response": []
+          ]
         }
       ]
     }

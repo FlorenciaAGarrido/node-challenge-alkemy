@@ -1,149 +1,684 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "title": "API Rest base repo.",
-    "description": "## This is a base api to start new projects.",
+    "title": "API The world of Disney.",
+    "description": "API with NodeJs, Express, Postman, Swagger and SQL.\n\n Explore the world of Disney knowing and modifying its movies and characters.",
     "version": "1.0.0",
     "contact": {
       "email": "flhor.garrido@gmail.com"
     }
   },
-
   "servers": [
     {
       "url": "http://localhost:3000/api/v1",
-      "description": "Desarrollo"
+      "description": "Development"
     },
     {
-      "url": "https://node-06-rest--server.herokuapp.com/api/v1",
-      "description": "Producción"
+      "url": " https://node-10-challenge-alkemy.herokuapp.com",
+      "description": "Produccion"
     }
   ],
   "tags": [
     {
-      "name": "users",
-      "description": "Operations about users."
+      "name": "Auth",
+      "description": "Operations for auth"
+    },
+    {
+      "name": "Users",
+      "description": "Operations for users"
+    },
+    {
+      "name": "Characters",
+      "description": "Character operations"
+    },
+    {
+      "name": "Movies",
+      "description": "Operations for movies"
+    },
+    {
+      "name": "Images",
+      "description": "Operations for movies"
     }
   ],
   "paths": {
-    "/users/": {
-      "get": {
-        "tags": ["users"],
-        "summary": "Get a list of all existing users.",
-        "description": "",
-        "responses": {
-          "200": {
-            "description": "The array of users in JSON format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/User"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
+    "/auth/login": {
       "post": {
-        "tags": ["users"],
-        "summary": "Create a new user.",
-        "description": "",
+        "tags": ["Auth"],
+        "summary": "Login with an existing user.",
+        "description": "Login with existing user, using email and password.",
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/User"
+                "$ref": "#/components/schemas/loginRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/loginSuccessResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/loginInvalidCredentials"
+          },
+          "400": {
+            "$ref": "#/components/responses/loginInvalidRequest"
+          }
+        }
+      }
+    },
+    "/auth/register": {
+      "post": {
+        "tags": ["Auth"],
+        "summary": "Register with an new user.",
+        "description": "Register with a valid email and password.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/registerRequest"
               }
             }
           }
         },
         "responses": {
           "201": {
-            "description": "User created."
+            "$ref": "#/components/responses/registerSuccess"
+          },
+          "400": {
+            "$ref": "#/components/responses/registerFailure"
           }
         }
       }
     },
-    "/users/{id}": {
-      "put": {
-        "tags": ["users"],
-        "summary": "Update an existing user by providing the id.",
-        "description": "",
-        "parameters": [
+    "/users": {
+      "get": {
+        "tags": ["Users"],
+        "security": [
           {
-            "name": "id",
-            "in": "path",
-            "description": "The id of the user that needs to be updated.",
-            "required": true,
-            "schema": {
-              "type": "integer"
-            }
+            "bearerAuth": []
           }
         ],
+        "summary": "Get users.",
+        "description": "Get users.\n \n Parameters that could be used in this service to filter users: \n \n * Name \n\n * Email \n\n * Limit \n\n * Offset \n\n * LastName.",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/getAllSuccess"
+          },
+          "401": {
+            "$ref": "#/components/responses/getAllWithoutToken"
+          }
+        }
+      },
+      "post": {
+        "tags": ["Users"],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "summary": "Save users.",
+        "description": "Save users.",
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/User"
+                "$ref": "#/components/schemas/saveUserRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "$ref": "#/components/responses/saveUserSuccess"
+          },
+          "400": {
+            "$ref": "#/components/responses/saveUserFailure"
+          }
+        }
+      }
+    },
+    "/users/<id>": {
+      "put": {
+        "tags": ["Users"],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "summary": "Update users.",
+        "description": "Update users.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/updateUserRequest"
               }
             }
           }
         },
         "responses": {
           "200": {
-            "description": "The user updated",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "$ref": "#/components/schemas/User"
-                }
+            "$ref": "#/components/responses/updateUserSuccess"
+          },
+          "400": {
+            "$ref": "#/components/responses/updateUserFailure"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Users"],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "summary": "Delete users.",
+        "description": "Delete users.",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/deleteUserSuccess"
+          },
+          "400": {
+            "$ref": "#/components/responses/deleteUserFailure"
+          }
+        }
+      }
+    },
+    "/characters": {
+      "post": {
+        "tags": ["Characters"],
+        "summary": "Save characters.",
+        "description": "Save characters.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/saveCharacterRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "$ref": "#/components/responses/saveCharacterSuccess"
+          },
+          "400": {
+            "$ref": "#/components/responses/saveCharacterFailure"
+          }
+        }
+      }
+    },
+    "/characters/<id>": {
+      "get": {
+        "tags": ["Characters"],
+        "summary": "Get characters.",
+        "description": "Get characters.",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/getCharacterDetailSuccess"
+          },
+          "400": {
+            "$ref": "#/components/responses/getCharacterDetaiFaiure"
+          }
+        }
+      }
+    },
+    "/movies": {
+      "post": {
+        "tags": ["Movies"],
+        "summary": "Save movies.",
+        "description": "Save movies.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/saveMovieRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "$ref": "#/components/responses/saveMovieSuccess"
+          },
+          "400": {
+            "$ref": "#/components/responses/saveMovieFailure"
+          }
+        }
+      }
+    },
+    "/movies/<id>": {}
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Ejecute el servicio **_login_** y aquí, solo ingrese token generado"
+      }
+    },
+    "schemas": {
+      "loginRequest": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "email": "flhor@gmail.com",
+          "password": "1234"
+        }
+      },
+      "registerRequest": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "email": "{{randomNumber}}@gmail.com",
+          "password": "123456"
+        }
+      },
+      "saveUserSuccess": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "role": {
+            "type": "enum"
+          }
+        },
+        "example": {
+          "name": "Fernando",
+          "email": "prueba@gmail.com",
+          "password": "123456",
+          "role": "USER_ROLE"
+        }
+      },
+      "updateUserRequest": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "name": "Florencia",
+          "email": "prueba2@gmail.com",
+          "password": "1234567",
+          "role": "ADMIN_ROLE"
+        }
+      },
+      "saveCharacterRequest": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "age": {
+            "type": "integer"
+          },
+          "history": {
+            "type": "string"
+          },
+          "role": {
+            "type": "integer"
+          }
+        },
+        "example": {
+          "name": "Spiderman{{randomNumber}}",
+          "age": 15,
+          "history": "Lorems imput",
+          "weigth": 65
+        }
+      },
+      "saveMovieRequest": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "creationDate": {
+            "type": "dateonly"
+          },
+          "calification": {
+            "type": "integer"
+          },
+          "genderType": {
+            "type": "string"
+          },
+          "contentType": {
+            "type": "string"
+          }
+        },
+        "example": {}
+      }
+    },
+    "responses": {
+      "loginSuccessResponse": {
+        "description": "Http status code response 200",
+        "content": {
+          "application/json": {
+            "example": {
+              "status": "OK",
+              "data": {
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsImlhdCI6MTY0MjUzNzgwOSwiZXhwIjoxNjQyNjI0MjA5fQ.7dRdeqvq1eHYhscFgoiEIKF0-3kYnMcg8NpPuDZajDU",
+                "user": "Florencia Garrido",
+                "role": "ADMIN_ROLE"
               }
             }
           }
         }
       },
-      "delete": {
-        "tags": ["users"],
-        "summary": "Delete an existing user by providing the id.",
-        "description": "",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "The id of the user that needs to be deleted.",
-            "required": true,
-            "schema": {
-              "type": "integer"
+      "loginInvalidCredentials": {
+        "description": "Http status code response 401",
+        "content": {
+          "application/json": {
+            "example": {
+              "error": {
+                "code": 401,
+                "message": "Authentication failed! Email / password does not corecct. #1"
+              }
             }
           }
-        ],
-        "responses": {
-          "200": {
-            "description": "User deleted."
+        }
+      },
+      "loginInvalidRequest": {
+        "description": "Http status code response 401",
+        "content": {
+          "application/json": {
+            "example": {
+              "error": {
+                "code": 400,
+                "message": "Validation Errors",
+                "detail": [
+                  {
+                    "value": "NotIsAEmail",
+                    "msg": "Email is invalid",
+                    "param": "email",
+                    "location": "body"
+                  }
+                ]
+              }
+            }
           }
         }
-      }
-    }
-  },
-  "components": {
-    "schemas": {
-      "User": {
-        "required": ["id"],
-        "type": "object",
-        "properties": {
-          "id": {
-            "description": "The user id.",
-            "type": "integer",
-            "example": "3"
-          },
-          "name": {
-            "description": "The user name.",
-            "type": "string",
-            "example": "Adrian"
+      },
+      "registerSuccess": {
+        "description": "Http status code response 201",
+        "content": {
+          "application/json": {
+            "example": {
+              "status": "OK",
+              "data": "User Registered. You can log in to use the API."
+            }
+          }
+        }
+      },
+      "registerFailure": {
+        "description": "Http status code response 400",
+        "content": {
+          "application/json": {
+            "example": {
+              "error": {
+                "code": 400,
+                "message": "Validation Errors",
+                "detail": [
+                  {
+                    "value": "prueba",
+                    "msg": "Email is invalid",
+                    "param": "email",
+                    "location": "body"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      "getAllSuccess": {
+        "description": "Http status code response 200",
+        "content": {
+          "application/json": {
+            "example": {
+              "status": "OK",
+              "data": [
+                {
+                  "id": 25,
+                  "password": "$2b$10$XND6v0E/SHHiFZA0CtGbGuIT0PesNTzXs0MbFyQlXT1fSGH3X4EeG",
+                  "name": "Florencia Garrido",
+                  "email": "flhor@gmail.com",
+                  "enable": true,
+                  "role": "ADMIN_ROLE",
+                  "createdAt": "2021-12-20T21:09:58.000Z",
+                  "updatedAt": "2021-12-20T21:09:58.000Z"
+                }
+              ]
+            }
+          }
+        }
+      },
+      "getAllWithoutToken": {
+        "description": "Http status code response 401",
+        "content": {
+          "application/json": {
+            "example": {
+              "error": {
+                "code": 401,
+                "message": "Authentication failed! Token required"
+              }
+            }
+          }
+        }
+      },
+      "saveUserSuccess": {
+        "description": "Http status code response 201",
+        "content": {
+          "application/json": {
+            "example": {
+              "status": "OK",
+              "data": {
+                "enable": true,
+                "id": 215,
+                "name": "Florencia2",
+                "email": "flor22@gmail.com",
+                "password": "$2b$10$yx3ix5u6wExuzHF/DEVDe.0VmQuygoUYscrLwIzYi.cRigAwiJKz.",
+                "role": "ADMIN_ROLE",
+                "updatedAt": "2022-01-19T00:19:43.422Z",
+                "createdAt": "2022-01-19T00:19:43.422Z"
+              }
+            }
+          }
+        }
+      },
+      "saveUserFailure": {
+        "description": "Http status code response 201",
+        "content": {
+          "application/json": {
+            "example": {
+              "error": {
+                "code": 400,
+                "message": "Validation Errors",
+                "detail": [
+                  {
+                    "value": "prueba@gmail.com",
+                    "msg": "Email already exist in DB",
+                    "param": "email",
+                    "location": "body"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      "updateUserSuccess": {
+        "description": "Http status code response 200",
+        "content": {
+          "application/json": {
+            "example": {
+              "status": "OK",
+              "data": [1]
+            }
+          }
+        }
+      },
+      "updateUserFailure": {
+        "description": "Http status code response 400",
+        "content": {
+          "application/json": {
+            "example": {
+              "error": {
+                "code": 400,
+                "message": "Validation Errors",
+                "detail": [
+                  {
+                    "value": "345234523452345",
+                    "msg": "The id does not exist id DB",
+                    "param": "id",
+                    "location": "params"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      "deleteUserSuccess": {
+        "description": "Http status code response 200",
+        "content": {
+          "application/json": {
+            "example": {
+              "status": "OK",
+              "data": 1
+            }
+          }
+        }
+      },
+      "deleteUserFailure": {
+        "description": "Http status code response 400",
+        "content": {
+          "application/json": {
+            "example": {
+              "error": {
+                "code": 400,
+                "message": "Validation Errors",
+                "detail": [
+                  {
+                    "value": "234143134124",
+                    "msg": "The id does not exist id DB",
+                    "param": "id",
+                    "location": "params"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      "saveCharacterSuccess": {
+        "description": "Http status code response 200",
+        "content": {
+          "application/json": {
+            "example": {
+              "status": "OK",
+              "data": {
+                "id": 265,
+                "name": "Spiderman0.07791433604654774",
+                "age": 15,
+                "history": "Lorems imput",
+                "weigth": 65,
+                "updatedAt": "2022-01-19T19:08:34.474Z",
+                "createdAt": "2022-01-19T19:08:34.474Z"
+              }
+            }
+          }
+        }
+      },
+      "saveCharacterFailure": {
+        "description": "Http status code response 400",
+        "content": {
+          "application/json": {
+            "example": {
+              "error": {
+                "code": 400,
+                "message": "Validation Errors",
+                "detail": [
+                  {
+                    "msg": "Invalid value",
+                    "param": "history",
+                    "location": "body"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      "getCharacterDetailSuccess": {
+        "description": "Http status code response 200",
+        "content": {
+          "application/json": {
+            "example": {
+              "status": "OK",
+              "data": {
+                "id": 225,
+                "image": "https://alkemy-challenge-nodejs.s3.amazonaws.com/Spiderman0.6097328898902299.jpeg",
+                "name": "Spiderman0.6097328898902299",
+                "age": 15,
+                "history": "Lorems imput",
+                "weigth": 65,
+                "createdAt": "2021-12-29T20:49:46.000Z",
+                "updatedAt": "2022-01-06T15:32:57.000Z",
+                "movies": [
+                  {
+                    "id": 35,
+                    "image": "https://alkemy-challenge-nodejs.s3.amazonaws.com/Cenicienta.jpeg",
+                    "title": "Cenicienta",
+                    "creationDate": "2021-03-25",
+                    "calification": 10,
+                    "createdAt": "2021-12-21T00:04:34.000Z",
+                    "updatedAt": "2021-12-29T20:43:31.000Z",
+                    "contentTypeId": 5,
+                    "genderTypeId": 5,
+                    "charactersMovies": {
+                      "createdAt": "2022-01-06T16:32:58.000Z",
+                      "updatedAt": "2022-01-06T16:32:58.000Z",
+                      "movieId": 35,
+                      "characterId": 225
+                    }
+                  }
+                ]
+              }
+            }
           }
         }
       }

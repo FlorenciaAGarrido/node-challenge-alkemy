@@ -108,19 +108,18 @@ const uploadCharacterImage = async (req, res, next) => {
  * @param {express.Request} req
  * @param {express.Response} res
  */
-/*const asocieteCharacter = async (req, res, next) => {
+const asocieteCharacter = async (req, res, next) => {
   try {
-      const character = req.character;
-      const movie = req.movie;
+    const character = req.character;
+    const movie = req.movie;
 
-      await characterService.asociate(character, movie);
+    await characterService.asociate(character, movie);
 
-      res.json(new Success());
+    res.json(new Success());
   } catch (err) {
-      next(err);
+    next(err);
   }
 };
-*/
 
 module.exports = {
   getAllCharacters,
@@ -129,5 +128,5 @@ module.exports = {
   getCharacterById,
   deleteCharacter,
   uploadCharacterImage,
-  //asocieteCharacter
+  asocieteCharacter,
 };

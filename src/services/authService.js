@@ -53,6 +53,8 @@ const validToken = async (token) => {
 
     logger.info(`Token received: ${token}`);
 
+    token = token.replace(/^Bearer\s+/, "");
+
     //validar que token sea integro
     let id;
     try {

@@ -20,4 +20,5 @@ const Movie = require("./movies");
 GenderType.hasMany(Movie, {
   foreignKey: "genderTypeId",
   sourceKey: "id",
+  as: "movies",
 });

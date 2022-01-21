@@ -2,6 +2,7 @@ const { Op } = require("sequelize");
 const Movie = require("../models/movies");
 const Character = require("../models/characters");
 const GenderType = require("../models/genderTypes");
+const ContentType = require("../models/contentTypes");
 const { parseISO } = require("date-fns");
 
 class MovieRepository {
@@ -46,7 +47,7 @@ class MovieRepository {
 
   async findByIdWithCharacters(id) {
     return await Movie.findByPk(id, {
-      include: ["characters", "gender", "type"],
+      include: ["characters", "genderType", "contentType"],
       attributes: ["id", "title", "image", "creationDate", "calification"],
     });
   }
@@ -56,9 +57,7 @@ class MovieRepository {
   }
 
   async save(m) {
-    return await Movie.create(m, {
-      include: [GenderType],
-    });
+    return await Movie.create(m);
   }
 
   async update(id, m) {

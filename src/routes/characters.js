@@ -8,7 +8,7 @@ const {
   getCharacterById,
   deleteCharacter,
   uploadCharacterImage,
-  //asocieteCharacter
+  asocieteCharacter,
 } = require("../controllers/characters");
 const {
   postRequestValidations,
@@ -17,7 +17,7 @@ const {
   getRequestValidation,
   deleteRequestValidations,
   postImageRequestValidations,
-  //asociationRequestValidations
+  asociationRequestValidations,
 } = require("../middlewares/characters");
 
 const router = Router();
@@ -28,6 +28,10 @@ router.put("/:id(\\d+)/", putRequestValidations, updateCharacter);
 router.get("/:id(\\d+)/", getRequestValidation, getCharacterById);
 router.delete("/:id(\\d+)/", deleteRequestValidations, deleteCharacter);
 router.post("/image", postImageRequestValidations, uploadCharacterImage);
-//router.put("/:idCharacter(\\d+)/movies/:idMovie(\\d+)/", asociationRequestValidations, asocieteCharacter);
+router.put(
+  "/:idCharacter(\\d+)/movies/:idMovie(\\d+)/",
+  asociationRequestValidations,
+  asocieteCharacter
+);
 
 module.exports = router;

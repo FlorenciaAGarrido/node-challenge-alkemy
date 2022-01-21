@@ -19,4 +19,5 @@ module.exports = ContentType;
 ContentType.hasMany(require("./movies"), {
   as: "movies",
   foreignKey: "contentTypeId",
+  sourceKey: "id",
 });
