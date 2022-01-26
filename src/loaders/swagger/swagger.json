@@ -34,10 +34,6 @@
     {
       "name": "Movies",
       "description": "Operations for movies"
-    },
-    {
-      "name": "Images",
-      "description": "Operations for movies"
     }
   ],
   "paths": {
@@ -189,6 +185,11 @@
     "/characters": {
       "post": {
         "tags": ["Characters"],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "summary": "Save characters.",
         "description": "Save characters.",
         "requestBody": {
@@ -208,19 +209,142 @@
             "$ref": "#/components/responses/saveCharacterFailure"
           }
         }
+      },
+      "get": {
+        "tags": ["Characters"],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "summary": "Get all characters.",
+        "description": "Get all characters.",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/getAllCharacterSuccess"
+          },
+          "401": {
+            "$ref": "#/components/responses/getAllCharacterWithoutToken"
+          }
+        }
       }
     },
     "/characters/<id>": {
       "get": {
         "tags": ["Characters"],
-        "summary": "Get characters.",
-        "description": "Get characters.",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "summary": "Get characters detail.",
+        "description": "Get characters detail .",
         "responses": {
           "200": {
             "$ref": "#/components/responses/getCharacterDetailSuccess"
           },
           "400": {
-            "$ref": "#/components/responses/getCharacterDetaiFaiure"
+            "$ref": "#/components/responses/getCharacterDetailFailure"
+          }
+        }
+      },
+      "put": {
+        "tags": ["Characters"],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "summary": "Update character.",
+        "description": "Update character.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/updateCharacterRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/updateCharacterSuccess"
+          },
+          "400": {
+            "$ref": "#/components/responses/updateCharacterFailure"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Characters"],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "summary": "Delete character.",
+        "description": "Delete character.",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/deleteCharacterSuccess"
+          },
+          "400": {
+            "$ref": "#/components/responses/deleteCharacterFailure"
+          }
+        }
+      }
+    },
+    "/characters/image": {
+      "post": {
+        "tags": ["Characters"],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "summary": "Upload character image.",
+        "description": "Upload character image.",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/uploadCharacterImageRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/uploadCharacterImageSuccess"
+          },
+          "400": {
+            "$ref": "#/components/responses/uploadCharacterImageFailure"
+          }
+        }
+      }
+    },
+    "/characters/<idCharacter>/movies/<idMovie>": {
+      "put": {
+        "tags": ["Characters"],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "summary": "Asociate Movie.",
+        "description": "Asociate Movie.",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/asociateMovieRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/asociateMovieSuccess"
           }
         }
       }
@@ -247,9 +371,146 @@
             "$ref": "#/components/responses/saveMovieFailure"
           }
         }
+      },
+      "get": {
+        "tags": ["Movies"],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "summary": "Get all movie.",
+        "description": "Get all movie.",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/getAllMovieSuccess"
+          },
+          "401": {
+            "$ref": "#/components/responses/getAllMovieWithoutToken"
+          }
+        }
       }
     },
-    "/movies/<id>": {}
+    "/movies/<id>": {
+      "get": {
+        "tags": ["Movies"],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "summary": "Get movie detail.",
+        "description": "Get movie detail .",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/getMovieDetailSuccess"
+          },
+          "400": {
+            "$ref": "#/components/responses/getMovieDetailFailure"
+          }
+        }
+      },
+      "put": {
+        "tags": ["Movies"],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "summary": "Update movie.",
+        "description": "Update movie.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/updateMovieRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/updateMovieSuccess"
+          },
+          "400": {
+            "$ref": "#/components/responses/updateMovieFailure"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Movies"],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "summary": "Delete movie.",
+        "description": "Delete movie.",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/deleteMovieSuccess"
+          },
+          "400": {
+            "$ref": "#/components/responses/deleteMovieFailure"
+          }
+        }
+      }
+    },
+    "/movie/image": {
+      "post": {
+        "tags": ["Movies"],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "summary": "Upload movie image.",
+        "description": "Upload movie image.",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/uploadMovieImageRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/uploadMovieImageSuccess"
+          },
+          "400": {
+            "$ref": "#/components/responses/uploadMovieImageFailure"
+          }
+        }
+      }
+    },
+    "/movies/<idMovie>/characters/<idCharacters>": {
+      "put": {
+        "tags": ["Movies"],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "summary": "Asociate Character.",
+        "description": "Asociate Character.",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/asociateCharacterRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/asociateCharacterSuccess"
+          }
+        }
+      }
+    }
   },
   "components": {
     "securitySchemes": {
@@ -291,7 +552,7 @@
           "password": "123456"
         }
       },
-      "saveUserSuccess": {
+      "saveUserRequest": {
         "type": "object",
         "properties": {
           "name": {
@@ -360,6 +621,57 @@
           "weigth": 65
         }
       },
+      "updateCharacterRequest": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "age": {
+            "type": "integer"
+          },
+          "history": {
+            "type": "string"
+          },
+          "role": {
+            "type": "integer"
+          }
+        },
+        "example": {
+          "status": "OK",
+          "data": [1]
+        }
+      },
+      "uploadCharacterImageRequest": {
+        "type": "object",
+        "properties": {
+          "image": {
+            "type": "file"
+          },
+          "id": {
+            "type": "number"
+          }
+        },
+        "example": {
+          "image": "test.jpg",
+          "id": 315
+        }
+      },
+      "asociateMovieRequest": {
+        "type": "object",
+        "properties": {
+          "characterId": {
+            "type": "number"
+          },
+          "movieId": {
+            "type": "number"
+          }
+        },
+        "example": {
+          "characterId": 125,
+          "movieId": 315
+        }
+      },
       "saveMovieRequest": {
         "type": "object",
         "properties": {
@@ -370,7 +682,7 @@
             "type": "dateonly"
           },
           "calification": {
-            "type": "integer"
+            "type": "number"
           },
           "genderType": {
             "type": "string"
@@ -379,7 +691,67 @@
             "type": "string"
           }
         },
-        "example": {}
+        "example": {
+          "title": "Cenicienta",
+          "creationDate": "2010-12-11",
+          "calification": 10,
+          "genderType": "ADVENTURE",
+          "contentType": "MOVIE"
+        }
+      },
+      "updateMovieRequest": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "creationDate": {
+            "type": "dateonly"
+          },
+          "calification": {
+            "type": "number"
+          },
+          "genderType": {
+            "type": "string"
+          },
+          "contentType": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "status": "OK",
+          "data": [1]
+        }
+      },
+      "uploadMovieImageRequest": {
+        "type": "object",
+        "properties": {
+          "image": {
+            "type": "file"
+          },
+          "id": {
+            "type": "number"
+          }
+        },
+        "example": {
+          "image": "test.jpg",
+          "id": 15
+        }
+      },
+      "asociateCharacterRequest": {
+        "type": "object",
+        "properties": {
+          "movieId": {
+            "type": "number"
+          },
+          "characterId": {
+            "type": "number"
+          }
+        },
+        "example": {
+          "movieId": 315,
+          "characterId": 125
+        }
       }
     },
     "responses": {
@@ -675,6 +1047,421 @@
                       "movieId": 35,
                       "characterId": 225
                     }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      "getCharacterDetailFailure": {
+        "description": "Http status code response 400",
+        "content": {
+          "application/json": {
+            "example": {
+              "error": {
+                "code": 400,
+                "message": "Validation Errors",
+                "detail": [
+                  {
+                    "value": "234143134124",
+                    "msg": "The id does not exist in DB",
+                    "param": "id",
+                    "location": "params"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      "getAllCharacterSuccess": {
+        "description": "Http status code response 200",
+        "content": {
+          "application/json": {
+            "example": {
+              "status": "OK",
+              "data": [
+                {
+                  "name": "Spiderman0.3043350958731932",
+                  "image": null
+                },
+                {
+                  "name": "Spiderman0.18478708325779358",
+                  "image": null
+                }
+              ]
+            }
+          }
+        }
+      },
+      "getAllCharacterWithoutToken": {
+        "description": "Http status code response 401",
+        "content": {
+          "application/json": {
+            "example": {
+              "error": {
+                "code": 401,
+                "message": "Authentication failed! Invalid token"
+              }
+            }
+          }
+        }
+      },
+      "updateCharacterSuccess": {
+        "description": "Http status code response 200",
+        "content": {
+          "application/json": {
+            "example": {
+              "status": "OK",
+              "data": [1]
+            }
+          }
+        }
+      },
+      "updateCharacterFailure": {
+        "description": "Http status code response 400",
+        "content": {
+          "application/json": {
+            "example": {
+              "error": {
+                "code": 400,
+                "message": "Validation Errors",
+                "detail": [
+                  {
+                    "value": "345234523452345",
+                    "msg": "The id does not exist in DB",
+                    "param": "id",
+                    "location": "params"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      "uploadCharacterImageSuccess": {
+        "description": "Http status code response 200",
+        "content": {
+          "application/json": {
+            "example": {
+              "status": "OK",
+              "data": [1]
+            }
+          }
+        }
+      },
+      "uploadCharacterImageFailure": {
+        "description": "Http status code response 400",
+        "content": {
+          "application/json": {
+            "example": {
+              "error": {
+                "code": 400,
+                "message": "Validation Errors",
+                "detail": [
+                  {
+                    "msg": "Invalid value",
+                    "param": "id",
+                    "location": "body"
+                  },
+                  {
+                    "msg": "Invalid value",
+                    "param": "id",
+                    "location": "body"
+                  },
+                  {
+                    "msg": "The id does not exist in DB",
+                    "param": "id",
+                    "location": "body"
+                  },
+                  {
+                    "msg": "You should upload a file",
+                    "param": "image",
+                    "location": "body"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      "asociateMovieSuccess": {
+        "description": "Http status code response 200",
+        "content": {
+          "application/json": {
+            "example": {
+              "status": "OK"
+            }
+          }
+        }
+      },
+      "deleteCharacterSuccess": {
+        "description": "Http status code response 200",
+        "content": {
+          "application/json": {
+            "example": {
+              "status": "OK",
+              "data": 1
+            }
+          }
+        }
+      },
+      "deleteCharacterFailure": {
+        "description": "Http status code response 400",
+        "content": {
+          "application/json": {
+            "example": {
+              "error": {
+                "code": 400,
+                "message": "Validation Errors",
+                "detail": [
+                  {
+                    "value": "234143134124",
+                    "msg": "The id does not exist in DB",
+                    "param": "id",
+                    "location": "params"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      "saveMovieSuccess": {
+        "description": "Http status code response 200",
+        "content": {
+          "application/json": {
+            "example": {
+              "status": "OK",
+              "data": {
+                "id": 265,
+                "name": "Spiderman0.07791433604654774",
+                "age": 15,
+                "history": "Lorems imput",
+                "weigth": 65,
+                "updatedAt": "2022-01-19T19:08:34.474Z",
+                "createdAt": "2022-01-19T19:08:34.474Z"
+              }
+            }
+          }
+        }
+      },
+      "saveMovieFailure": {
+        "description": "Http status code response 400",
+        "content": {
+          "application/json": {
+            "example": {
+              "error": {
+                "code": 400,
+                "message": "Validation Errors",
+                "detail": [
+                  {
+                    "msg": "Invalid value",
+                    "param": "history",
+                    "location": "body"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      "getMovieDetailSuccess": {
+        "description": "Http status code response 200",
+        "content": {
+          "application/json": {
+            "example": {
+              "status": "OK",
+              "data": {
+                "id": 295,
+                "title": "Cenicienta 0.0964165002750077",
+                "image": null,
+                "creationDate": "2010-12-11",
+                "calification": 10,
+                "characters": [],
+                "genderType": {
+                  "id": 5,
+                  "description": "ADVENTURE"
+                },
+                "contentType": {
+                  "id": 5,
+                  "description": "MOVIE"
+                }
+              }
+            }
+          }
+        }
+      },
+      "getMovieDetailFailure": {
+        "description": "Http status code response 400",
+        "content": {
+          "application/json": {
+            "example": {
+              "error": {
+                "code": 400,
+                "message": "Validation Errors",
+                "detail": [
+                  {
+                    "value": "234143134124",
+                    "msg": "The id does not exist id DB",
+                    "param": "id",
+                    "location": "params"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      "getAllMovieSuccess": {
+        "description": "Http status code response 200",
+        "content": {
+          "application/json": {
+            "example": {
+              "status": "OK",
+              "data": [
+                {
+                  "title": "Cenicienta 0.21016307029648162",
+                  "image": null,
+                  "creationDate": "2010-12-11"
+                },
+                {
+                  "title": "Cenicienta 0.5702263505422445",
+                  "image": null,
+                  "creationDate": "2010-12-11"
+                }
+              ]
+            }
+          }
+        }
+      },
+      "getAllMovieWithoutToken": {
+        "description": "Http status code response 401",
+        "content": {
+          "application/json": {
+            "example": {
+              "error": {
+                "code": 401,
+                "message": "Authentication failed! Invalid token"
+              }
+            }
+          }
+        }
+      },
+      "updateMovieSuccess": {
+        "description": "Http status code response 200",
+        "content": {
+          "application/json": {
+            "example": {
+              "status": "OK",
+              "data": [1]
+            }
+          }
+        }
+      },
+      "updateMovieFailure": {
+        "description": "Http status code response 400",
+        "content": {
+          "application/json": {
+            "example": {
+              "error": {
+                "code": 400,
+                "message": "Validation Errors",
+                "detail": [
+                  {
+                    "value": "345234523452345",
+                    "msg": "The id does not exist in DB",
+                    "param": "id",
+                    "location": "params"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      "uploadMovieImageSuccess": {
+        "description": "Http status code response 200",
+        "content": {
+          "application/json": {
+            "example": {
+              "status": "OK",
+              "data": [1]
+            }
+          }
+        }
+      },
+      "uploadMovieImageFailure": {
+        "description": "Http status code response 400",
+        "content": {
+          "application/json": {
+            "example": {
+              "error": {
+                "code": 400,
+                "message": "Validation Errors",
+                "detail": [
+                  {
+                    "msg": "Invalid value",
+                    "param": "id",
+                    "location": "body"
+                  },
+                  {
+                    "msg": "Invalid value",
+                    "param": "id",
+                    "location": "body"
+                  },
+                  {
+                    "msg": "The id does not exist in DB",
+                    "param": "id",
+                    "location": "body"
+                  },
+                  {
+                    "msg": "You should upload a file",
+                    "param": "image",
+                    "location": "body"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      "asociateCharacterSuccess": {
+        "description": "Http status code response 200",
+        "content": {
+          "application/json": {
+            "example": {
+              "status": "OK"
+            }
+          }
+        }
+      },
+      "deleteMovieSuccess": {
+        "description": "Http status code response 200",
+        "content": {
+          "application/json": {
+            "example": {
+              "status": "OK",
+              "data": 1
+            }
+          }
+        }
+      },
+      "deleteMovieFailure": {
+        "description": "Http status code response 400",
+        "content": {
+          "application/json": {
+            "example": {
+              "error": {
+                "code": 400,
+                "message": "Validation Errors",
+                "detail": [
+                  {
+                    "value": "234143134124",
+                    "msg": "The id does not exist in DB",
+                    "param": "id",
+                    "location": "params"
                   }
                 ]
               }
